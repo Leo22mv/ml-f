@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   logged: boolean = false;
   loading: boolean = false;
   error: boolean = false;
+  invalid: boolean = false;
 
   uri: string = "";
 
@@ -31,6 +32,7 @@ export class LoginComponent implements OnInit {
     this.btnClass = "disabled";
     this.logged = false;
     this.error = false;
+    this.invalid = false;
     this.http.post(this.uri + "/login", {username: this.username, password: this.password}).subscribe(res => {
 
     }, err => {
@@ -39,6 +41,8 @@ export class LoginComponent implements OnInit {
       this.btnClass = "";
       if (err.status==200){
         this.logged = true;
+      } else if (err.status==401) {
+        this.invalid = true;
       } else {
         this.error = true;
       }
