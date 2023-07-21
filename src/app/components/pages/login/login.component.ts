@@ -9,6 +9,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  btnClass: string = "";
+
   username: string = "";
   password: string = "";
 
@@ -26,6 +28,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.loading = true;
+    this.btnClass = "disabled";
     this.logged = false;
     this.error = false;
     this.http.post(this.uri + "/login", {username: this.username, password: this.password}).subscribe(res => {
@@ -33,6 +36,7 @@ export class LoginComponent implements OnInit {
     }, err => {
       console.log(err)
       this.loading = false;
+      this.btnClass = "";
       if (err.status==200){
         this.logged = true;
       } else {
