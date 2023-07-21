@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   loading: boolean = false;
   error: boolean = false;
   invalid: boolean = false;
+  vacio: boolean = false;
 
   uri: string = "";
 
@@ -28,25 +29,33 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.loading = true;
-    this.btnClass = "disabled";
-    this.logged = false;
-    this.error = false;
-    this.invalid = false;
-    this.http.post(this.uri + "/login", {username: this.username, password: this.password}).subscribe(res => {
+    if (this.username.length>0&&this.password.length>0) {
+      this.loading = true;
+      this.btnClass = "disabled";
+      this.logged = false;
+      this.error = false;
+      this.invalid = false;
+      this.vacio = false;
+      this.http.post(this.uri + "/login", {username: this.username, password: this.password}).subscribe(res => {
 
-    }, err => {
-      console.log(err)
-      this.loading = false;
-      this.btnClass = "";
-      if (err.status==200){
-        this.logged = true;
-      } else if (err.status==401) {
-        this.invalid = true;
-      } else {
-        this.error = true;
-      }
-    })
+      }, err => {
+        console.log(err)
+        this.loading = false;
+        this.btnClass = "";
+        if (err.status==200){
+          this.logged = true;
+        } else if (err.status==401) {
+          this.invalid = true;
+        } else {
+          this.error = true;
+        }
+      })
+    } else {
+      this.logged = false;
+      this.error = false;
+      this.invalid = false;
+      this.vacio = true;
+    }
   }
 
 }

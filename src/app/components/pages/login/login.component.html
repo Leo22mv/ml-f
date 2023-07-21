@@ -28,6 +28,10 @@
     Inicio de sesion exitoso
 </div>
 
+<div class="alert alert-danger" *ngIf="vacio">
+    Complete todos los campos para continuar
+</div>
+
 <div class="alert alert-danger" *ngIf="invalid">
     Nombre de usuario y/o contraseña incorrecto/s
 </div>
