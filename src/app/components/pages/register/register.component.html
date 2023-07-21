@@ -1,0 +1,27 @@
+<form>
+    <label for="username">Dirección de correo electrónico:</label>
+    <input type="text" id="email" name="email" [(ngModel)]="this.email">
+
+    <label for="username">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" [(ngModel)]="nombre">
+
+    <label for="username">Nombre de usuario:</label>
+    <input type="text" id="username" name="username" [(ngModel)]="username">
+
+    <label for="password">Contraseña</label>
+    <input type="text" id="password" name="password" [(ngModel)]="password">
+
+    <input type="submit" (click)="onSubmit()">
+
+    <div class="spin" *ngIf="loading">
+        Cargando
+    </div>
+
+    <div class="alert" *ngIf="registered">
+        Usuario registrado correctamente
+    </div>
+    
+    <div class="alert" *ngIf="error">
+        Error
+    </div>
+</form>

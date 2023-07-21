@@ -1,0 +1,6 @@
+img, span {
+    filter: invert();
+}
+* {
+    color: white;
+}
