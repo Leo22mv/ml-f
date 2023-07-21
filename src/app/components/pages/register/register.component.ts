@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
   loading: boolean = false;
   registered: boolean = false;
   error: boolean = false;
+  invalid: boolean = false;
   
 
   uri: string = "";

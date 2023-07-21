@@ -54,6 +54,10 @@
     Registro exitoso
 </div>
 
+<div class="alert alert-danger" *ngIf="invalid">
+    Dirección de correo electrónico y/o nombre de usuario existente/s
+</div>
+
 <div class="alert alert-danger" *ngIf="error">
     Error
 </div>
