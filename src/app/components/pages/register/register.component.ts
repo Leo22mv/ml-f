@@ -32,6 +32,7 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.registered = false;
     this.error = false;
+    this.invalid = false;
     this.loading = true;
     // console.log(this.email)
     this.http.post(this.uri + "/registrarse", {email: this.email, nombre: this.nombre, username: this.username, password: this.password}).subscribe(res => {
@@ -43,6 +44,8 @@ export class RegisterComponent implements OnInit {
       this.loading = false;
       if (err.status==200) {
         this.registered = true;
+      } else if(err.status==401) {
+        this.invalid = true;
       } else {
         this.error = true;
       }
