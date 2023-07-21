@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  
   uri: string = "http://localhost:8080";
 
   constructor(private http: HttpClient) { }
