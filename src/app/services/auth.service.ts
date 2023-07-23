@@ -22,6 +22,6 @@ export class AuthService {
   }
 
   getUsers() {
-    this.http.get<any[]>(this.uri + "/usuarios");
+    return this.http.get<any[]>(this.uri + "/usuarios");
   }
 }
