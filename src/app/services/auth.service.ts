@@ -20,4 +20,8 @@ export class AuthService {
       console.log(res);
     });
   }
+
+  getUsers() {
+    this.http.get<any[]>(this.uri + "/usuarios");
+  }
 }
