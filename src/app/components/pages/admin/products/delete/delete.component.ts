@@ -29,10 +29,12 @@ export class DeleteComponent implements OnInit {
   
     this.http.delete(url).subscribe(
       res => {
+        console.log(res);
         this.loading = false;
         this.success = true;
       },
       err => {
+        console.log(err);
         if (err.status==200) {
           this.loading = false;
           this.success = true;
