@@ -18,7 +18,7 @@ export class GetComponent implements OnInit {
 
   ngOnInit(): void {
     this.uri = this.prodServ.uri
-    this.http.get<any[]>(this.uri + "/productos/agregar").subscribe(res => {
+    this.http.get<any[]>(this.uri + "/productos").subscribe(res => {
       this.loading = false;
       this.productList = res;
     }, err => {
