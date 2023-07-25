@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -22,13 +23,17 @@ export class LoginComponent implements OnInit {
 
   uri: string = "";
 
-  constructor(private http: HttpClient, private auth: AuthService) { }
+  constructor(private http: HttpClient, private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.uri = this.auth.uri;
   }
 
   onSubmit() {
+    // this.router.navigate(["/tienda"]);
+    // localStorage.setItem("token", "1");
+
+
     if (this.username.length>0&&this.password.length>0) {
       this.loading = true;
       this.btnClass = "disabled";
@@ -44,6 +49,8 @@ export class LoginComponent implements OnInit {
         this.btnClass = "";
         if (err.status==200){
           this.logged = true;
+          // this.router.navigate(["/tienda"]);
+          // localStorage.setItem("token", "1");
         } else if (err.status==401) {
           this.invalid = true;
         } else {
@@ -57,5 +64,4 @@ export class LoginComponent implements OnInit {
       this.vacio = true;
     }
   }
-
 }

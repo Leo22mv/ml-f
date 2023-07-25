@@ -24,4 +24,8 @@ export class AuthService {
   getUsers() {
     return this.http.get<any[]>(this.uri + "/usuarios");
   }
+
+  logout() {
+    localStorage.removeItem("token");
+  }
 }
