@@ -14,6 +14,11 @@ export class AddComponent implements OnInit {
   error: boolean = false;
 
   name: string = "";
+  description: string = "";
+  urlPh: string = "";
+  category: string = "";
+  price: number = 0;
+  stock: number = 0;
 
   uri: string = "";
 
@@ -25,7 +30,7 @@ export class AddComponent implements OnInit {
 
   onSubmit() {
     this.loading = true;
-    this.http.post(this.uri + "/productos/agregar", {name: this.name, description: "", urlPh: "", category: "", price: 0, stock: 0}).subscribe(res => {
+    this.http.post(this.uri + "/productos/agregar", {name: this.name, description: this.description, urlPh: this.urlPh, category: this.category, price: this.price, stock: this.stock}).subscribe(res => {
       this.loading = false;
       this.success = true;
     }, err => {

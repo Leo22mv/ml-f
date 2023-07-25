@@ -1,8 +1,35 @@
 <form>
     <div class="mb-3">
       <label for="exampleInputName1" class="form-label">Nombre:</label>
-      <input type="text" class="form-control" id="exampleInputName1" name="name" [(ngModel)]="this.name">
+      <input type="text" class="form-control" id="exampleInputName1" name="Name" [(ngModel)]="this.name">
     </div>
+
+    <div class="mb-3">
+        <label for="exampleInputDescription1" class="form-label">Descripción:</label>
+        <input type="text" class="form-control" id="exampleInputDescription1" name="Description" [(ngModel)]="this.description">
+    </div>
+
+        <div class="mb-3">
+        <label for="exampleInputUrlPh1" class="form-label">Dirección de imagen:</label>
+        <input type="text" class="form-control" id="exampleInputUrlPh1" name="UrlPh" [(ngModel)]="this.urlPh">
+    </div>
+
+        <div class="mb-3">
+        <label for="exampleInputCategory1" class="form-label">Categoría:</label>
+        <input type="text" class="form-control" id="exampleInputCategory1" name="Category" [(ngModel)]="this.category">
+    </div>
+
+        <div class="mb-3">
+        <label for="exampleInputPrice1" class="form-label">Precio:</label>
+        <input type="number" class="form-control" id="exampleInputPrice1" name="Price" [(ngModel)]="this.price">
+    </div>
+
+        <div class="mb-3">
+        <label for="exampleInputStock1" class="form-label">Stock:</label>
+        <input type="number" class="form-control" id="exampleInputStock1" name="Stock" [(ngModel)]="this.stock">
+    </div>
+
+
     <button type="submit" class="btn btn-dark" (click)="onSubmit()">Agregar</button>
 </form>
 
