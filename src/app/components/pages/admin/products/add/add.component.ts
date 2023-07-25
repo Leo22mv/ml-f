@@ -25,12 +25,13 @@ export class AddComponent implements OnInit {
 
   onSubmit() {
     this.loading = true;
-    this.http.post(this.uri + "productos/agregar", {name: this.name, description: "", urlPh: "", category: "", price: 0, stock: 0}).subscribe(res => {
+    this.http.post(this.uri + "/productos/agregar", {name: this.name, description: "", urlPh: "", category: "", price: 0, stock: 0}).subscribe(res => {
       this.loading = false;
       this.success = true;
     }, err => {
       this.loading = false;
       this.error = true;
+      console.log
     });
   }
 
