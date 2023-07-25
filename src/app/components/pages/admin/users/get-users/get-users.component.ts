@@ -25,5 +25,4 @@ export class GetUsersComponent implements OnInit {
       this.error = true;
     })
     }
-
 }
