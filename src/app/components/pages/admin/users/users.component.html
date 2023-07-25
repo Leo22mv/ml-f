@@ -1,5 +1,6 @@
-<ul class="list-group">
-    <div *ngFor="let user of usersList">
-        <li class="list-group-item">Id: {{ user.id }}, Email: {{ user.email }}, Nombre: {{ user.nombre }}, Username: {{ user.username }}, Password: {{ user.password }}</li>
-    </div>
-</ul>
+<button class="btn btn-dark" routerLink="ver">
+    Ver usuarios
+</button>
+<br>
+
+<router-outlet></router-outlet>

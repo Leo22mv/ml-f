@@ -25,16 +25,19 @@ export class DeleteComponent implements OnInit {
 
   onSubmit(id: number) {
     this.loading = true;
+    this.success = false;
+    this.error = false;
+    
     const url = `${this.uri}/productos/${id}`;
   
     this.http.delete(url).subscribe(
       res => {
-        console.log(res);
+        // console.log(res);
         this.loading = false;
         this.success = true;
       },
       err => {
-        console.log(err);
+        // console.log(err);
         if (err.status==200) {
           this.loading = false;
           this.success = true;
@@ -45,5 +48,4 @@ export class DeleteComponent implements OnInit {
       }
     );
   }
-
 }

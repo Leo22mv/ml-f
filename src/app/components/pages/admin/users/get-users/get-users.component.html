@@ -1,0 +1,13 @@
+<div class="spinner-border" role="status" *ngIf="loading">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+<ul class="list-group">
+    <div *ngFor="let user of usersList">
+        <li class="list-group-item">Id: {{ user.id }}, Email: {{ user.email }}, Nombre: {{ user.nombre }}, Username: {{ user.username }}, Password: {{ user.password }}</li>
+    </div>
+</ul>
+
+<div class="alert alert-danger" *ngIf="error">
+    Error
+</div>

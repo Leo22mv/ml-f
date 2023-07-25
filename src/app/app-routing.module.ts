@@ -10,6 +10,7 @@ import { ProductsComponent } from './components/pages/admin/products/products.co
 import { GetComponent } from './components/pages/admin/products/get/get.component';
 import { AddComponent } from './components/pages/admin/products/add/add.component';
 import { DeleteComponent } from './components/pages/admin/products/delete/delete.component';
+import { GetUsersComponent } from './components/pages/admin/users/get-users/get-users.component';
 
 const routes: Routes = [
   {path: "iniciar-sesion", component: LoginComponent},
@@ -20,7 +21,9 @@ const routes: Routes = [
       {path: "ver", component: GetComponent},
       {path: "agregar", component: AddComponent}
     ]},
-    {path: "usuarios", component: UsersComponent}
+    {path: "usuarios", component: UsersComponent, children: [
+      {path: "ver", component: GetUsersComponent}
+    ]}
   ]},
   {path: "tienda", component: StoreComponent},
   {path: "", redirectTo: "/home", pathMatch: "full"},

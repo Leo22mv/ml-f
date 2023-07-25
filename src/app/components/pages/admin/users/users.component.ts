@@ -8,15 +8,10 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class UsersComponent implements OnInit {
 
-  usersList: any = [];
-
-  constructor(private auth: AuthService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.auth.getUsers().subscribe(res => {
-      this.usersList = res;
-      // console.log(res);
-    })
+    
   }
 
 }

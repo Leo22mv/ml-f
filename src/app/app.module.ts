@@ -19,6 +19,11 @@ import { ProductsComponent } from './components/pages/admin/products/products.co
 import { GetComponent } from './components/pages/admin/products/get/get.component';
 import { AddComponent } from './components/pages/admin/products/add/add.component';
 import { DeleteComponent } from './components/pages/admin/products/delete/delete.component';
+import { ALogoutComponent } from './components/header/a-logout/a-logout.component';
+import { ALoginComponent } from './components/header/a-login/a-login.component';
+import { ARegisterComponent } from './components/header/a-register/a-register.component';
+import { AAdminComponent } from './components/header/a-admin/a-admin.component';
+import { GetUsersComponent } from './components/pages/admin/users/get-users/get-users.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +40,12 @@ import { DeleteComponent } from './components/pages/admin/products/delete/delete
     ProductsComponent,
     GetComponent,
     AddComponent,
-    DeleteComponent
+    DeleteComponent,
+    ALogoutComponent,
+    ALoginComponent,
+    ARegisterComponent,
+    AAdminComponent,
+    GetUsersComponent
   ],
   imports: [
     BrowserModule,
