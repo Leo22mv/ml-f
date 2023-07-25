@@ -1,0 +1,20 @@
+<form>
+    <div class="mb-3">
+        <label for="exampleInputId1" class="form-label">Id:</label>
+        <input type="number" class="form-control" id="exampleInputId1" name="Id" [(ngModel)]="this.id">
+    </div>
+
+    <button type="submit" class="btn btn-dark" (click)="onSubmit()">Eliminar</button>
+</form>
+
+<div class="spinner-border" role="status" *ngIf="loading">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+<div class="alert alert-success" *ngIf="success">
+    Producto eliminado correctamente
+</div>
+
+<div class="alert alert-danger" *ngIf="error">
+    Error
+</div>

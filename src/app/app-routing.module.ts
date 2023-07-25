@@ -9,12 +9,14 @@ import { UsersComponent } from './components/pages/admin/users/users.component';
 import { ProductsComponent } from './components/pages/admin/products/products.component';
 import { GetComponent } from './components/pages/admin/products/get/get.component';
 import { AddComponent } from './components/pages/admin/products/add/add.component';
+import { DeleteComponent } from './components/pages/admin/products/delete/delete.component';
 
 const routes: Routes = [
   {path: "iniciar-sesion", component: LoginComponent},
   {path: "registrarse", component: RegisterComponent},
   {path: "admin", component: AdminComponent, children: [
     {path: "productos", component: ProductsComponent, children: [
+      {path: "eliminar", component: DeleteComponent},
       {path: "ver", component: GetComponent},
       {path: "agregar", component: AddComponent}
     ]},

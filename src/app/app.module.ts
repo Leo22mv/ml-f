@@ -18,6 +18,7 @@ import { UsersComponent } from './components/pages/admin/users/users.component';
 import { ProductsComponent } from './components/pages/admin/products/products.component';
 import { GetComponent } from './components/pages/admin/products/get/get.component';
 import { AddComponent } from './components/pages/admin/products/add/add.component';
+import { DeleteComponent } from './components/pages/admin/products/delete/delete.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AddComponent } from './components/pages/admin/products/add/add.componen
     UsersComponent,
     ProductsComponent,
     GetComponent,
-    AddComponent
+    AddComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,
