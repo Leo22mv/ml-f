@@ -1,0 +1,19 @@
+<form>
+    <div class="mb-3">
+      <label for="exampleInputName1" class="form-label">Nombre:</label>
+      <input type="text" class="form-control" id="exampleInputName1" name="name" [(ngModel)]="this.name">
+    </div>
+    <button type="submit" class="btn btn-dark" (click)="onSubmit()">Agregar</button>
+</form>
+
+<div class="spinner-border" role="status" *ngIf="loading">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+<div class="alert alert-success" *ngIf="success">
+    Producto agregado correctamente
+</div>
+
+<div class="alert alert-danger" *ngIf="error">
+    Error
+</div>

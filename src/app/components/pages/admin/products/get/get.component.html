@@ -1,0 +1,9 @@
+<div class="spinner-border" role="status" *ngIf="loading">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+<ul class="list-group">
+    <div *ngFor="let product of productList">
+        <li class="list-group-item">Nombre: {{ product.name }}</li>
+    </div>
+</ul>

@@ -15,6 +15,9 @@ import { LoginComponent } from './components/pages/login/login.component';
 import { RegisterComponent } from './components/pages/register/register.component';
 import { FormsModule } from '@angular/forms';
 import { UsersComponent } from './components/pages/admin/users/users.component';
+import { ProductsComponent } from './components/pages/admin/products/products.component';
+import { GetComponent } from './components/pages/admin/products/get/get.component';
+import { AddComponent } from './components/pages/admin/products/add/add.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { UsersComponent } from './components/pages/admin/users/users.component';
     AdminComponent,
     LoginComponent,
     RegisterComponent,
-    UsersComponent
+    UsersComponent,
+    ProductsComponent,
+    GetComponent,
+    AddComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  logged = localStorage.getItem("token");
+
   constructor() { }
 
   ngOnInit(): void {
