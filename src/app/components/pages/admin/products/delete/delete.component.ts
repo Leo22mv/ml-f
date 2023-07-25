@@ -23,15 +23,25 @@ export class DeleteComponent implements OnInit {
     this.uri = this.prodServ.uri;
   }
 
-  onSubmit() {
+  onSubmit(id: number) {
     this.loading = true;
-    this.http.post(this.uri + "/productos/eliminar", this.id).subscribe(res => {
-      this.loading = false;
-      this.success = true;
-    }, err => {
-      this.loading = false;
-      this.error = true;
-    })
+    const url = `${this.uri}/productos/${id}`;
+  
+    this.http.delete(url).subscribe(
+      res => {
+        this.loading = false;
+        this.success = true;
+      },
+      err => {
+        if (err.status==200) {
+          this.loading = false;
+          this.success = true;
+        } else {
+          this.loading = false;
+          this.error = true;
+        }
+      }
+    );
   }
 
 }
