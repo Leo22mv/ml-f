@@ -8,11 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileComponent implements OnInit {
 
   name: string | null = "";
+  admin: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
     this.name = localStorage.getItem("Username");
+    if (this.name=="kbe") {
+      this.admin = true;
+    }
   }
 
 }

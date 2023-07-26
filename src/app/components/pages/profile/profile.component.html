@@ -1,1 +1,7 @@
 <h1>Bienvenido, {{ name }}</h1>
+
+<div *ngIf="admin">
+    <button class="btn btn-dark" routerLink="/admin">
+        Administración
+    </button>
+</div>
