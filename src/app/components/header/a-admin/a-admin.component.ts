@@ -13,4 +13,8 @@ export class AAdminComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public get admin(): boolean {
+    return (localStorage.getItem("Admin") !== null);
+  }
+
 }
