@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
         this.logged = true;
         localStorage.setItem("auth_token", res.token);
         localStorage.setItem("role", res.Role[0].authority);
+        localStorage.setItem("Username", res.Username);
       }, err => {
         console.log(err)
         this.loading = false;
