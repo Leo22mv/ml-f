@@ -10,7 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { StoreComponent } from './components/pages/store/store.component';
 import { AdminComponent } from './components/pages/admin/admin.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/pages/login/login.component';
 import { RegisterComponent } from './components/pages/register/register.component';
 import { FormsModule } from '@angular/forms';
@@ -31,6 +31,7 @@ import { ProductComponent } from './components/pages/admin/purchases/add-purchas
 import { DetailsComponent } from './components/pages/admin/purchases/get-purchases/details/details.component';
 import { ProfileComponent } from './components/pages/profile/profile.component';
 import { AProfileComponent } from './components/header/a-profile/a-profile.component';
+import { JwtInterceptor } from './services/jwt-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,9 @@ import { AProfileComponent } from './components/header/a-profile/a-profile.compo
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
