@@ -1,0 +1,23 @@
+<div class="spinner-border" role="status" *ngIf="loadingProducts">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+<ul class="list-group">
+    <div *ngFor="let product of productList">
+        <app-product [product]="product" (emmiter)="add($event)"></app-product>
+    </div>
+</ul>
+
+<button class="btn btn-dark" (click)="onSubmit()">Confirmar compra</button>
+
+<div class="spinner-border" role="status" *ngIf="loading">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+<div class="alert alert-success" *ngIf="success">
+    Compra realizada con éxito
+</div>
+
+<div class="alert alert-danger" *ngIf="error">
+    Error
+</div>

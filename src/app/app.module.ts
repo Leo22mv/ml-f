@@ -24,6 +24,11 @@ import { ALoginComponent } from './components/header/a-login/a-login.component';
 import { ARegisterComponent } from './components/header/a-register/a-register.component';
 import { AAdminComponent } from './components/header/a-admin/a-admin.component';
 import { GetUsersComponent } from './components/pages/admin/users/get-users/get-users.component';
+import { PurchasesComponent } from './components/pages/admin/purchases/purchases.component';
+import { GetPurchasesComponent } from './components/pages/admin/purchases/get-purchases/get-purchases.component';
+import { AddPurchaseComponent } from './components/pages/admin/purchases/add-purchase/add-purchase.component';
+import { ProductComponent } from './components/pages/admin/purchases/add-purchase/product/product.component';
+import { DetailsComponent } from './components/pages/admin/purchases/get-purchases/details/details.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +50,12 @@ import { GetUsersComponent } from './components/pages/admin/users/get-users/get-
     ALoginComponent,
     ARegisterComponent,
     AAdminComponent,
-    GetUsersComponent
+    GetUsersComponent,
+    PurchasesComponent,
+    GetPurchasesComponent,
+    AddPurchaseComponent,
+    ProductComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

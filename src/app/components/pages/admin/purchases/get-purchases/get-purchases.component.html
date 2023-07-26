@@ -1,0 +1,15 @@
+<div class="spinner-border" role="status" *ngIf="loading">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+<ul class="list-group">
+    <div *ngFor="let purchase of purchasesList">
+        <li class="list-group-item">
+            Id de compra: {{ purchase.id_buy }} - Total: ${{ purchase.total }} - Id de usuario: {{ purchase.user.id }}
+            <br>
+            <button class="btn btn-dark btn-sm" routerLink="{{ purchase.id_buy }}">
+                Detalles
+            </button>
+        </li>
+    </div>
+</ul>

@@ -1,0 +1,8 @@
+<li class="list-group-item">
+    Id de producto: {{ product.id_product }} - Nombre: {{ product.name }} - Precio: {{ product.price }}
+    <br>
+    <label for="quantity">Cantidad:</label>
+    <input type="number" id="quantity" name="quantity" [(ngModel)]="quantity">
+    <button [class]="btnClass" (click)="onSubmit()">Agregar</button>
+    <p *ngIf="added">Agregado Correctamente</p>
+</li>

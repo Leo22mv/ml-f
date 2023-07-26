@@ -1,0 +1,7 @@
+<ul class="list-group">
+    <div *ngFor="let detail of detailsList">
+        <li class="list-group-item">
+            Id de compra: {{ detail.buy.id_buy }} - Id de producto: {{ detail.product.id_product }} - Precio: ${{ detail.product.price }} - Cantidad: {{ detail.quantity }}
+        </li>
+    </div>
+</ul>
