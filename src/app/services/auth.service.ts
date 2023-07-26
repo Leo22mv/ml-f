@@ -28,6 +28,8 @@ export class AuthService {
   logout() {
     localStorage.removeItem("auth_token");
     localStorage.removeItem("role");
+    localStorage.removeItem("Username");
+    localStorage.removeItem("Admin");
   }
 
   public get logged(): boolean {
