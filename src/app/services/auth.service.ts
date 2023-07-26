@@ -33,4 +33,8 @@ export class AuthService {
   public get logged(): boolean {
     return (localStorage.getItem("auth_token") !== null);
   }
+
+  public get admin(): boolean {
+    return (localStorage.getItem("Username") === "kbe");
+  }
 }
