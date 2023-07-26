@@ -35,7 +35,8 @@ export class AuthService {
   }
 
   public get admin(): boolean {
-    console.log(localStorage.getItem("Username") === "kbe")
-    return (localStorage.getItem("Username") === "kbe");
+    // console.log(localStorage.getItem("Username") === "kbe")
+    const username = localStorage.getItem("Username")
+    return (username === "kbe");
   }
 }
