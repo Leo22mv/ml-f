@@ -1,1 +1,5 @@
-<p>a-admin works!</p>
+<li class="nav-item" *ngIf="auth.logged">
+    <a class="nav-link" routerLink="admin" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+      Admin
+    </a>
+</li>

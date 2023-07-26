@@ -41,8 +41,13 @@ export class LoginComponent implements OnInit {
       this.error = false;
       this.invalid = false;
       this.vacio = false;
-      this.http.post(this.uri + "/login", {username: this.username, password: this.password}).subscribe(res => {
-
+      this.http.post(this.uri + "/login", {username: this.username, password: this.password}).subscribe((res: any) => {
+        console.log(res);
+        this.loading = false;
+        this.btnClass = "";
+        this.logged = true;
+        localStorage.setItem("auth_token", res.token);
+        localStorage.setItem("role", res.Role[0].authority);
       }, err => {
         console.log(err)
         this.loading = false;

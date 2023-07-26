@@ -29,6 +29,8 @@ import { GetPurchasesComponent } from './components/pages/admin/purchases/get-pu
 import { AddPurchaseComponent } from './components/pages/admin/purchases/add-purchase/add-purchase.component';
 import { ProductComponent } from './components/pages/admin/purchases/add-purchase/product/product.component';
 import { DetailsComponent } from './components/pages/admin/purchases/get-purchases/details/details.component';
+import { ProfileComponent } from './components/pages/profile/profile.component';
+import { AProfileComponent } from './components/header/a-profile/a-profile.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { DetailsComponent } from './components/pages/admin/purchases/get-purchas
     GetPurchasesComponent,
     AddPurchaseComponent,
     ProductComponent,
-    DetailsComponent
+    DetailsComponent,
+    ProfileComponent,
+    AProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit {
       this.loading = true;
       this.vacio = false;
       // console.log(this.email)
-      this.http.post(this.uri + "/registrarse", {email: this.email, nombre: this.nombre, username: this.username, password: this.password}).subscribe(res => {
+      this.http.post(this.uri + "/registrarse", {email: this.email, nombre: this.nombre, username: this.username, password: this.password, roles: ["USER"]}).subscribe(res => {
         // console.log(res);
         this.loading = false;
         this.registered = true;

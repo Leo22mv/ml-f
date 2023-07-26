@@ -10,7 +10,7 @@ export class ALogoutComponent implements OnInit {
 
   logged: boolean | undefined;
 
-  constructor(private auth: AuthService) { }
+  constructor(public auth: AuthService) { }
 
   ngOnInit(): void {
     if (localStorage.getItem("token")) {

@@ -15,11 +15,15 @@ import { PurchasesComponent } from './components/pages/admin/purchases/purchases
 import { GetPurchasesComponent } from './components/pages/admin/purchases/get-purchases/get-purchases.component';
 import { AddPurchaseComponent } from './components/pages/admin/purchases/add-purchase/add-purchase.component';
 import { DetailsComponent } from './components/pages/admin/purchases/get-purchases/details/details.component';
+import { AuthService } from './services/auth.service';
+import { RoleGuard } from './services/role-guard.service';
+import { ProfileComponent } from './components/pages/profile/profile.component';
 
 const routes: Routes = [
+  {path: "perfil", component: ProfileComponent, canActivate: [RoleGuard], data: { requiredRoles: ['ROLE_ADMIN', 'ROLE_USER'] }},
   {path: "iniciar-sesion", component: LoginComponent},
   {path: "registrarse", component: RegisterComponent},
-  {path: "admin", component: AdminComponent, children: [
+  {path: "admin", component: AdminComponent, canActivate: [RoleGuard], data: { requiredRoles: ['ROLE_ADMIN'] }, children: [
     {path: "compras", component: PurchasesComponent, children: [
       {path: "ver/:id", component: DetailsComponent},
       {path: "ver", component: GetPurchasesComponent},
