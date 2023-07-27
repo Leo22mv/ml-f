@@ -11,6 +11,8 @@ export class HeaderComponent implements OnInit {
 
   logged: string | null = localStorage.getItem("token");
 
+  search: string = "";
+
   constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
@@ -42,6 +44,9 @@ export class HeaderComponent implements OnInit {
 
     // Escuchar el evento de cambio en el localStorage
     // window.addEventListener('storage', this.updateLoggedValue.bind(this));
+
+
+    // console.log(this.auth.admin);
   }
 
   // updateLoggedValue(event: StorageEvent) {
@@ -49,4 +54,8 @@ export class HeaderComponent implements OnInit {
   //     this.logged = event.newValue; // Actualizar el valor de 'logged' cuando cambie el token en el localStorage
   //   }
   // }
+
+  onSubmit() {
+    alert("yeia")
+  }
 }

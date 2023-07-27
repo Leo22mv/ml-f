@@ -1,0 +1,23 @@
+h1, h2, p, small, .addForm, button {
+    margin-left: 15px;
+}
+img {
+    margin: 0px 20px;
+}
+
+
+li {
+    display: flex;
+    align-items: center;
+}
+
+input {
+    width: 50px;
+}
+
+.flex {
+    display: flex;
+}
+.flex p {
+    color: green;
+}

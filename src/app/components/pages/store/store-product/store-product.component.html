@@ -1,0 +1,25 @@
+<div *ngIf="product.stock>0">
+    <li class="list-group-item">
+        <img src="{{ product.urlPh }}" width="150px" height="150px">
+        <div>
+            <h1>{{ product.name }}</h1>
+            <p>{{ product.description }}</p>
+            <p>Categoría: {{ product.category }}</p>
+            <div class="flex">
+                <h2>${{ product.price }}</h2>
+                <p *ngIf="success"><b>Producto agregado correctamente</b></p>
+            </div>
+            <div class="addForm">
+                <label for="quantity">Cantidad:</label>
+                <input type="number" id="quantity" [(ngModel)]="quantity" min="1" max="{{ product.stock }}">
+                <button class="btn btn-dark" (click)="addToCart()">
+                    Agregar al carrito
+                </button>
+                <button class="btn btn-dark" routerLink="/carrito" *ngIf="success">
+                    Ir al carrito
+                </button>
+            </div>
+            <small>Cantidad disponible: {{ product.stock }}</small>
+        </div>
+    </li>
+</div>

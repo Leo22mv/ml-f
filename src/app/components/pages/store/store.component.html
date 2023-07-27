@@ -1,12 +1,44 @@
-<h1>Tienda en desarrollo</h1>
+<!-- <h1>Tienda en desarrollo</h1> -->
 
 
-<!-- <div class="spinner-border" role="status" *ngIf="loading">
+<div class="spinner-border" role="status" *ngIf="loading">
     <span class="visually-hidden">Loading...</span>
 </div>
 
+<div class="filters">
+    <div class="dropdown">
+        <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Categoría
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" (click)="changeCategory('Todas')">Todas</a></li>
+          <li><a class="dropdown-item" (click)="changeCategory('Ropa')">Ropa</a></li>
+          <li><a class="dropdown-item" (click)="changeCategory('Accesorios')">Accesorios</a></li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Ordenar
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" (click)="order('Precio (ascendente)')">Precio (ascendente)</a></li>
+          <li><a class="dropdown-item" (click)="order('Precio (descendente)')">Precio (descendente)</a></li>
+        </ul>
+      </div>
+      <!-- <div class="dropdown">
+        <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Vista
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item">Lista</a></li>
+          <li><a class="dropdown-item">Cuadrícula</a></li>
+        </ul>
+      </div> -->
+</div>
+
+
 <ul class="list-group">
     <div *ngFor="let product of productList">
-        <li class="list-group-item">Id de producto: {{ product.id_product }} - Nombre: {{ product.name }} - Descripcion: {{ product.description }} - Foto: {{ product.urlPh }} - Categoría: {{ product.category }} - Precio: {{ product.price }} - Stock: {{ product.stock }}</li>
+        <app-store-product [product]="product" (emitter)="addToCart($event)"></app-store-product>
     </div>
-</ul> -->
+</ul>

@@ -1,3 +1,14 @@
-h1 {
+.spinner-border {
     margin: 15px;
+}
+ul {
+    /* margin: 30px; */
+    margin-bottom: 80px;
+}
+.filters {
+    margin: 10px;
+    display: flex;
+}
+.filters button {
+    margin: 10px;
 }

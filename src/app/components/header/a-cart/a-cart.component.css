@@ -1,0 +1,9 @@
+img {
+    filter: invert();
+}
+span {
+    color: black;
+}
+* {
+    margin-top: 10px;
+}

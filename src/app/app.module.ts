@@ -32,6 +32,10 @@ import { DetailsComponent } from './components/pages/admin/purchases/get-purchas
 import { ProfileComponent } from './components/pages/profile/profile.component';
 import { AProfileComponent } from './components/header/a-profile/a-profile.component';
 import { JwtInterceptor } from './services/jwt-interceptor.service';
+import { SearchComponent } from './components/header/search/search.component';
+import { StoreProductComponent } from './components/pages/store/store-product/store-product.component';
+import { CartComponent } from './components/pages/cart/cart.component';
+import { ACartComponent } from './components/header/a-cart/a-cart.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +64,11 @@ import { JwtInterceptor } from './services/jwt-interceptor.service';
     ProductComponent,
     DetailsComponent,
     ProfileComponent,
-    AProfileComponent
+    AProfileComponent,
+    SearchComponent,
+    StoreProductComponent,
+    CartComponent,
+    ACartComponent
   ],
   imports: [
     BrowserModule,
