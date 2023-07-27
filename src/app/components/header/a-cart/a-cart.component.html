@@ -1,5 +1,5 @@
-<a class="navbar-brand" routerLink="/carrito">
-    <img src="../../../../assets/img/png-transparent-computer-icons-badmintonclick-store-rectangle-logo-black.png" width="30">
+<a class="navbar-brand" routerLink="/carrito" *ngIf="auth.logged">
+    <img src="../../../../assets/img/carrito.png" width="30">
     <span  id="carrito-btn" class="position-absolute top-30 start-90 translate-middle badge rounded-pill bg-light">
         {{ cartService.cart.length }}
         <span class="visually-hidden">Cantidad de productos en carrito</span>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
+import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class ACartComponent implements OnInit {
 
   
 
-  constructor(public cartService: CartService) { }
+  constructor(public cartService: CartService, public auth: AuthService) { }
 
   ngOnInit(): void {
     
