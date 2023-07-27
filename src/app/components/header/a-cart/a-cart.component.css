@@ -1,5 +1,5 @@
-img {
-    filter: invert();
+.navbar-brand {
+    margin-right: 25px;
 }
 span {
     color: black;
