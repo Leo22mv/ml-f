@@ -53,7 +53,7 @@ export class StoreComponent implements OnInit {
     // }
   ];
 
-  totalProductList = [];
+  totalProductList: any = [];
 
   constructor(private http: HttpClient, private prodServ: ProductService, public cartService: CartService) { }
 
@@ -62,11 +62,10 @@ export class StoreComponent implements OnInit {
     this.http.get<any[]>(this.uri + "/productos").subscribe(res => {
       this.loading = false;
       this.productList = res;
+      this.totalProductList = res;
     }, err => {
       this.loading = false;
     })
-
-    this.totalProductList = this.productList;
   }
 
   changeCategory(cat: any) {
