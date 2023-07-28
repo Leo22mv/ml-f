@@ -34,9 +34,10 @@ export class AuthService {
 
   public get logged(): boolean {
     return (localStorage.getItem("auth_token") !== null);
+    // return true
   }
 
-  public get admin(): boolean {
-    return (localStorage.getItem("Admin") !== null);
-  }
+  // public get admin(): boolean {
+  //   return (localStorage.getItem("Admin") !== null);
+  // }
 }

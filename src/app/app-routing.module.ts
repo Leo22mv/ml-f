@@ -21,7 +21,7 @@ import { ProfileComponent } from './components/pages/profile/profile.component';
 import { CartComponent } from './components/pages/cart/cart.component';
 
 const routes: Routes = [
-  {path: "carrito", component: CartComponent},
+  {path: "carrito", component: CartComponent, canActivate: [RoleGuard], data: { requiredRoles: ['ROLE_ADMIN', 'ROLE_USER'] }},
   {path: "perfil", component: ProfileComponent, canActivate: [RoleGuard], data: { requiredRoles: ['ROLE_ADMIN', 'ROLE_USER'] }},
   {path: "iniciar-sesion", component: LoginComponent},
   {path: "registrarse", component: RegisterComponent},

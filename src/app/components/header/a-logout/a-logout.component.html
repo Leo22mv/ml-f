@@ -1,5 +1,9 @@
-<li class="nav-item" *ngIf="auth.logged" (click)="logout()">
+<!-- <li class="nav-item" *ngIf="auth.logged" (click)="logout()">
     <a class="nav-link" routerLink="iniciar-sesion" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
       Cerrar sesión
     </a>
-</li>
+</li> -->
+
+<a class="navbar-brand" routerLink="iniciar-sesion" *ngIf="auth.logged" (click)="logout()">
+  <img src="../../../../assets/img/logout.png" width="30">
+</a>
