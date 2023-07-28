@@ -38,41 +38,22 @@ export class RegisterComponent implements OnInit {
       this.invalid = false;
       this.loading = true;
       this.vacio = false;
-      if (this.username=="kbe"&&this.password=="admin") {
-        this.http.post(this.uri + "/registrarse", {email: this.email, nombre: this.nombre, username: this.username, password: this.password, roles: ["ADMIN"]}).subscribe(res => {
-          // console.log(res);
-          this.loading = false;
-          this.registered = true;
-        }, (err) => {
-          // console.log(err);
-          this.loading = false;
-          if (err.status==200) {
-            this.registered = true;
-          } else if(err.status==401) {
-            this.invalid = true;
-          } else {
-            this.error = true;
-          }
-        })
-      } else {
-        this.http.post(this.uri + "/registrarse", {email: this.email, nombre: this.nombre, username: this.username, password: this.password, roles: ["USER"]}).subscribe(res => {
-          // console.log(res);
-          this.loading = false;
-          this.registered = true;
-        }, (err) => {
-          // console.log(err);
-          this.loading = false;
-          if (err.status==200) {
-            this.registered = true;
-          } else if(err.status==401) {
-            this.invalid = true;
-          } else {
-            this.error = true;
-          }
-        })
-      }
       // console.log(this.email)
-      
+      this.http.post(this.uri + "/registrarse", {email: this.email, nombre: this.nombre, username: this.username, password: this.password, roles: ["USER"]}).subscribe(res => {
+        // console.log(res);
+        this.loading = false;
+        this.registered = true;
+      }, (err) => {
+        // console.log(err);
+        this.loading = false;
+        if (err.status==200) {
+          this.registered = true;
+        } else if(err.status==401) {
+          this.invalid = true;
+        } else {
+          this.error = true;
+        }
+      })
     } else {
       this.registered = false;
       this.error = false;
