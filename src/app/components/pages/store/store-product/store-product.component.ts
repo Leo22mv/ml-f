@@ -34,7 +34,11 @@ export class StoreProductComponent implements OnInit {
 
   addToCart() {
     this.productToEmit = this.product;
-    this.productToEmit.quantity = this.quantity;
+    this.productToEmit.quantity = 1;
+    console.log(this.productToEmit)
+    if (this.quantity>1) {
+      this.productToEmit.quantity = this.quantity;
+    }
 
     // console.log(this.productToEmit);
 

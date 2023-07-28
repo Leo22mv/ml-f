@@ -30,48 +30,49 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    // this.router.navigate(["/tienda"]);
-    // localStorage.setItem("token", "1");
+    this.router.navigate(["/tienda"]);
+    localStorage.setItem("auth_token", "1");
+    localStorage.setItem("role", "ROLE_ADMIN");
 
 
-    if (this.username.length>0&&this.password.length>0) {
-      this.loading = true;
-      this.btnClass = "disabled";
-      this.logged = false;
-      this.error = false;
-      this.invalid = false;
-      this.vacio = false;
-      this.http.post(this.uri + "/login", {username: this.username, password: this.password}).subscribe((res: any) => {
-        console.log(res);
-        this.loading = false;
-        this.btnClass = "";
-        this.logged = true;
-        localStorage.setItem("auth_token", res.token);
-        localStorage.setItem("role", res.Role[0].authority);
-        localStorage.setItem("Username", res.Username);
-        if (res.Role[0].authority=="ROLE_ADMIN") {
-          localStorage.setItem("Admin", "1");
-        }
-        this.router.navigate(["/perfil"]);
-      }, err => {
-        console.log(err)
-        this.loading = false;
-        this.btnClass = "";
-        if (err.status==200){
-          this.logged = true;
-          // this.router.navigate(["/tienda"]);
-          // localStorage.setItem("token", "1");
-        } else if (err.status==401) {
-          this.invalid = true;
-        } else {
-          this.error = true;
-        }
-      })
-    } else {
-      this.logged = false;
-      this.error = false;
-      this.invalid = false;
-      this.vacio = true;
-    }
+    // if (this.username.length>0&&this.password.length>0) {
+    //   this.loading = true;
+    //   this.btnClass = "disabled";
+    //   this.logged = false;
+    //   this.error = false;
+    //   this.invalid = false;
+    //   this.vacio = false;
+    //   this.http.post(this.uri + "/login", {username: this.username, password: this.password}).subscribe((res: any) => {
+    //     console.log(res);
+    //     this.loading = false;
+    //     this.btnClass = "";
+    //     this.logged = true;
+    //     localStorage.setItem("auth_token", res.token);
+    //     localStorage.setItem("role", res.Role[0].authority);
+    //     localStorage.setItem("Username", res.Username);
+    //     if (res.Role[0].authority=="ROLE_ADMIN") {
+    //       localStorage.setItem("Admin", "1");
+    //     }
+    //     this.router.navigate(["/perfil"]);
+    //   }, err => {
+    //     console.log(err)
+    //     this.loading = false;
+    //     this.btnClass = "";
+    //     if (err.status==200){
+    //       this.logged = true;
+    //       // this.router.navigate(["/tienda"]);
+    //       // localStorage.setItem("token", "1");
+    //     } else if (err.status==401) {
+    //       this.invalid = true;
+    //     } else {
+    //       this.error = true;
+    //     }
+    //   })
+    // } else {
+    //   this.logged = false;
+    //   this.error = false;
+    //   this.invalid = false;
+    //   this.vacio = true;
+    // }
   }
 }

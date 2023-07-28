@@ -2,4 +2,11 @@
     Nombre: {{ product.name }}, Cantidad: {{ product.quantity }}
 </div>
 
-<h1>Carrito en desarrollo</h1>
+<div *ngIf="voidCart()">
+    <h2>Carrito vacío</h2>
+    <button class="btn btn-dark" routerLink="/tienda">
+        Ir a la tienda
+    </button>
+</div>
+
+<!-- <h1>Carrito en desarrollo</h1> -->

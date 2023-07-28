@@ -15,45 +15,47 @@ export class StoreComponent implements OnInit {
   uri = "";
 
   productList: any = [
-    // {
-    //   id: 1,
-    //   name: "Sombrero de paja",
-    //   description: "Sombrero usado por el protagonista Luffy en la historia de One Piece",
-    //   urlPh: "../../../../../assets/img/png-transparent-computer-icons-badmintonclick-store-rectangle-logo-black.png",
-    //   category: "Accesorios",
-    //   price: 5000,
-    //   stock: 5
-    // },
-    // {
-    //   id: 2,
-    //   name: "Capa de Akatsuki",
-    //   description: "Capa usada por la organización Akatsuki en Naruto y Naruto Shippuden",
-    //   urlPh: "../../../../../assets/img/png-transparent-computer-icons-badmintonclick-store-rectangle-logo-black.png",
-    //   category: "Ropa",
-    //   price: 8000,
-    //   stock: 3
-    // },
-    // {
-    //   id: 3,
-    //   name: "Capa del cuerpo de exploración",
-    //   description: "Capa usada por el equipo encargado de explorar fuera de las murallas en Shingeki no kyojin",
-    //   urlPh: "../../../../../assets/img/png-transparent-computer-icons-badmintonclick-store-rectangle-logo-black.png",
-    //   category: "Ropa",
-    //   price: 7000,
-    //   stock: 4
-    // },
-    // {
-    //   id: 4,
-    //   name: "Banda de Konoha",
-    //   description: "Banda usada por los ninjas de la aldea de la hoja en Naruto y Naruto Shippuden",
-    //   urlPh: "../../../../../assets/img/png-transparent-computer-icons-badmintonclick-store-rectangle-logo-black.png",
-    //   category: "Accesorios",
-    //   price: 3000,
-    //   stock: 10
-    // }
+    {
+      id: 1,
+      name: "Sombrero de paja",
+      description: "Sombrero usado por el protagonista Luffy en la historia de One Piece",
+      urlPh: "../../../../../assets/img/png-transparent-computer-icons-badmintonclick-store-rectangle-logo-black.png",
+      category: "Accesorios",
+      price: 5000,
+      stock: 5
+    },
+    {
+      id: 2,
+      name: "Capa de Akatsuki",
+      description: "Capa usada por la organización Akatsuki en Naruto y Naruto Shippuden",
+      urlPh: "../../../../../assets/img/png-transparent-computer-icons-badmintonclick-store-rectangle-logo-black.png",
+      category: "Ropa",
+      price: 8000,
+      stock: 3
+    },
+    {
+      id: 3,
+      name: "Capa del cuerpo de exploración",
+      description: "Capa usada por el equipo encargado de explorar fuera de las murallas en Shingeki no kyojin",
+      urlPh: "../../../../../assets/img/png-transparent-computer-icons-badmintonclick-store-rectangle-logo-black.png",
+      category: "Ropa",
+      price: 7000,
+      stock: 4
+    },
+    {
+      id: 4,
+      name: "Banda de Konoha",
+      description: "Banda usada por los ninjas de la aldea de la hoja en Naruto y Naruto Shippuden",
+      urlPh: "../../../../../assets/img/png-transparent-computer-icons-badmintonclick-store-rectangle-logo-black.png",
+      category: "Accesorios",
+      price: 3000,
+      stock: 10
+    }
   ];
 
   totalProductList: any = [];
+
+  cart: any = [];
 
   constructor(private http: HttpClient, private prodServ: ProductService, public cartService: CartService) { }
 
@@ -114,7 +116,7 @@ export class StoreComponent implements OnInit {
   addToCart(prod: Product) {
     let existent: boolean = false;
 
-    for (let product of this.cartService.cart) {
+    for (let product of this.cart) {
       if (product.id==prod.id) {
         // console.log(product.quantity)
         product.quantity += prod.quantity;
@@ -124,7 +126,24 @@ export class StoreComponent implements OnInit {
     }
 
     if (!existent) {
-      this.cartService.cart.push(prod);
+      this.cart.push(prod);
     }
+
+    console.log(this.cartService.cart);
+    this.cartService.cart = this.cart;
+    console.log(this.cartService.cart)
+    
+    // for (let product of this.cartService.cart) {
+    //   if (product.id==prod.id) {
+        // console.log(product.quantity)
+    //     product.quantity += prod.quantity;
+        // console.log(product.quantity)
+    //     existent = true;
+    //   }
+    // }
+
+    // if (!existent) {
+    //   this.cartService.cart.push(prod);
+    // }
   }
 }

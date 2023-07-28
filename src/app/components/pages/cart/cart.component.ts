@@ -17,4 +17,8 @@ export class CartComponent implements OnInit {
     this.cart = this.cartService.cart;
   }
 
+  voidCart(): boolean {
+    return this.cart.length<=0
+  }
+
 }
