@@ -1,3 +1,6 @@
 .spinner-border, .alert, form, button {
     margin: 15px;
 }
+.spinner-border, .alert {
+    /* margin-bottom: 30px; */
+}
