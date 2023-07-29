@@ -62,18 +62,18 @@ export class SearchResultsComponent implements OnInit {
     this.prodServ.getProducts().subscribe(res => {
       this.loading = false;
       this.totalProductList = res;
+
+      this.route.queryParams.subscribe(params => {this.productList = this.totalProductList.filter((product: any) => {
+        return (product.name.toLowerCase().includes(params["busqueda"])
+        ||product.description.toLowerCase().includes(params["busqueda"])
+        ||product.category.toLowerCase().includes(params["busqueda"])
+        // ||product.price.includes(params["busqueda"])
+        )})
+        this.results = this.productList.length});
     }, err => {
       this.loading = false;
       this.error = true;
     })
-
-    this.route.queryParams.subscribe(params => {this.productList = this.totalProductList.filter((product: any) => {
-      return (product.name.toLowerCase().includes(params["busqueda"])
-      ||product.description.toLowerCase().includes(params["busqueda"])
-      ||product.category.toLowerCase().includes(params["busqueda"])
-      // ||product.price.includes(params["busqueda"])
-      )})
-      this.results = this.productList.length});
   }
 
 }
