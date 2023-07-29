@@ -10,7 +10,20 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductDetailsComponent implements OnInit {
 
   id: any;
-  product: any;
+  product: any
+    // = {
+    //   id_product: 1,
+    //   name: "Sombrero de paja",
+    //   description: "Sombrero usado por el protagonista Luffy en la historia de One Piece",
+    //   urlPh: "../../../../../assets/img/png-transparent-computer-icons-badmintonclick-store-rectangle-logo-black.png",
+    //   category: "Accesorios",
+    //   price: 5000,
+    //   stock: 5
+    // }
+    ;
+
+  loading: boolean = true;
+  error: boolean = false;
 
   constructor(private route: ActivatedRoute, private prodServ: ProductService) { }
 
@@ -20,9 +33,12 @@ export class ProductDetailsComponent implements OnInit {
     this.prodServ.getProducts().subscribe(res => {
       for (let product of res) {
         if (this.id==product.id_product) {
+          this.loading = false;
           this.product = product;
         }
       }
+    }, err => {
+      this.error = true;
     })
   }
 
