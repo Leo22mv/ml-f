@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
+import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -13,7 +15,7 @@ export class StoreProductComponent implements OnInit {
   @Output() emitter: EventEmitter<Product> = new EventEmitter<Product>()
 
   productToEmit: Product = {
-    id_product: 0,
+    id: 0,
     name: "",
     description: "",
     urlPh: "",
@@ -27,28 +29,32 @@ export class StoreProductComponent implements OnInit {
 
   success: boolean = false;
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   addToCart() {
-    this.productToEmit = this.product;
-    this.productToEmit.quantity = 1;
-    console.log(this.productToEmit)
-    if (this.quantity>1) {
-      this.productToEmit.quantity = this.quantity;
+    if (this.auth.logged) {
+      this.productToEmit = this.product;
+      this.productToEmit.quantity = 1;
+      // console.log(this.productToEmit)
+      if (this.quantity>1) {
+        this.productToEmit.quantity = this.quantity;
+      }
+
+      // console.log(this.productToEmit);
+
+      this.success = true;
+      this.product.stock = this.product.stock - this.quantity;
+
+      this.emitter.emit(this.productToEmit);
+
+      this.quantity = 1;
+
+      // console.log(this.productToEmit)
+    }  else {
+      this.router.navigate(["/tienda"]);
     }
-
-    // console.log(this.productToEmit);
-
-    this.success = true;
-    this.product.stock = this.product.stock - this.quantity;
-
-    this.emitter.emit(this.productToEmit);
-
-    this.quantity = 1;
-
-    // console.log(this.productToEmit)
   }
 }

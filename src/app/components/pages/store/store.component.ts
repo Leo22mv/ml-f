@@ -120,34 +120,35 @@ export class StoreComponent implements OnInit {
   addToCart(prod: Product) {
     let existent: boolean = false;
 
-    for (let product of this.cart) {
-      if (product.id_product==prod.id_product) {
-        // console.log(product.quantity)
-        product.quantity += prod.quantity;
-        // console.log(product.quantity)
-        existent = true;
-      }
-    }
-
-    if (!existent) {
-      this.cart.push(prod);
-    }
-
-    console.log(this.cartService.cart);
-    this.cartService.cart = this.cart;
-    console.log(this.cartService.cart)
-    
-    // for (let product of this.cartService.cart) {
+    // for (let product of this.cart) {
     //   if (product.id==prod.id) {
-        // console.log(product.quantity)
+    //     // console.log(product.quantity)
     //     product.quantity += prod.quantity;
-        // console.log(product.quantity)
+    //     // console.log(product.quantity)
     //     existent = true;
     //   }
     // }
 
     // if (!existent) {
-    //   this.cartService.cart.push(prod);
+    //   this.cart.push(prod);
     // }
+
+    // // console.log(this.cartService.cart);
+    // this.cartService.cart = this.cart;
+    // // console.log(this.cartService.cart)
+    
+    for (let product of this.cartService.cart) {
+      if (product.id==prod.id) {
+        // console.log(product.quantity)
+        product.quantity += prod.quantity;
+        // console.log(product.quantity)
+        existent = true;
+      }
+      // console.log(product.quantity)
+    }
+
+    if (!existent) {
+      this.cartService.cart.push(prod);
+    }
   }
 }
