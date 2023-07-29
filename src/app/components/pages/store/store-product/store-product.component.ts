@@ -15,7 +15,7 @@ export class StoreProductComponent implements OnInit {
   @Output() emitter: EventEmitter<Product> = new EventEmitter<Product>()
 
   productToEmit: Product = {
-    id: 0,
+    id_product: 0,
     name: "",
     description: "",
     urlPh: "",
