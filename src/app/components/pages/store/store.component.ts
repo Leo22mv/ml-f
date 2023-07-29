@@ -61,7 +61,7 @@ export class StoreComponent implements OnInit {
 
   ngOnInit(): void {
     this.uri = this.prodServ.uri
-    this.http.get<any[]>(this.uri + "/productos").subscribe(res => {
+    this.prodServ.getProducts().subscribe(res => {
       this.loading = false;
       this.productList = res;
       this.totalProductList = res;
@@ -150,5 +150,15 @@ export class StoreComponent implements OnInit {
     if (!existent) {
       this.cartService.cart.push(prod);
     }
+  }
+
+
+  searchProducts(query: string) {
+    // query = query.toLowerCase().trim(); // Convertir a minúsculas y eliminar espacios en blanco
+    // // Filtrar productos que coincidan con la búsqueda (puedes ajustar el criterio de búsqueda según tus necesidades)
+    // return this.productList.filter((product: any) =>
+    //   product.name.toLowerCase().includes(query) // Filtrar por nombre del producto
+    //   // Puedes agregar más condiciones aquí para filtrar por otras propiedades del producto
+    // );
   }
 }

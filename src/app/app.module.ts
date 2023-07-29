@@ -36,6 +36,7 @@ import { SearchComponent } from './components/header/search/search.component';
 import { StoreProductComponent } from './components/pages/store/store-product/store-product.component';
 import { CartComponent } from './components/pages/cart/cart.component';
 import { ACartComponent } from './components/header/a-cart/a-cart.component';
+import { SearchResultsComponent } from './components/pages/search-results/search-results.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { ACartComponent } from './components/header/a-cart/a-cart.component';
     SearchComponent,
     StoreProductComponent,
     CartComponent,
-    ACartComponent
+    ACartComponent,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,

@@ -12,7 +12,7 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getProducts() {
-    this.http.get(this.uri + "/productos")
+    return this.http.get<any[]>(this.uri + "/productos")
   }
 
   addProduct(prod: any) {

@@ -1,0 +1,13 @@
+<div class="spinner-border" role="status" *ngIf="loading">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+<div class="alert alert-danger" *ngIf="error">
+    Error
+</div>
+
+<p *ngIf="!loading">Mostrando {{ results }} de {{ results }} resultados</p>
+
+<div *ngFor="let product of productList">
+    <app-store-product [product]="product"></app-store-product>
+</div>

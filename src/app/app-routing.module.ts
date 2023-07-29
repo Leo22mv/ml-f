@@ -19,8 +19,10 @@ import { AuthService } from './services/auth.service';
 import { RoleGuard } from './services/role-guard.service';
 import { ProfileComponent } from './components/pages/profile/profile.component';
 import { CartComponent } from './components/pages/cart/cart.component';
+import { SearchResultsComponent } from './components/pages/search-results/search-results.component';
 
 const routes: Routes = [
+  {path: "buscar", component: SearchResultsComponent},
   {path: "carrito", component: CartComponent, canActivate: [RoleGuard], data: { requiredRoles: ['ROLE_ADMIN', 'ROLE_USER'] }},
   {path: "perfil", component: ProfileComponent, canActivate: [RoleGuard], data: { requiredRoles: ['ROLE_ADMIN', 'ROLE_USER'] }},
   {path: "iniciar-sesion", component: LoginComponent},
