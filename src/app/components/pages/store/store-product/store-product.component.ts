@@ -29,6 +29,8 @@ export class StoreProductComponent implements OnInit {
 
   success: boolean = false;
 
+  btnClass: string = "btn btn-dark"
+
   constructor(private cartService: CartService, private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
@@ -53,6 +55,8 @@ export class StoreProductComponent implements OnInit {
       this.quantity = 1;
 
       // console.log(this.productToEmit)
+
+      this.btnClass = "btn btn-dark disabled"
     }  else {
       this.router.navigate(["/iniciar-sesion"]);
     }

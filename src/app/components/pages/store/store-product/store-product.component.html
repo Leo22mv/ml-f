@@ -14,7 +14,7 @@
             <div class="addForm">
                 <label for="quantity">Cantidad:</label>
                 <input type="number" id="quantity" [(ngModel)]="quantity" min="1" max="{{ product.stock }}">
-                <button class="btn btn-dark" (click)="addToCart()">
+                <button (class)="btnClass" (click)="addToCart()">
                     Agregar al carrito
                 </button>
                 <button class="btn btn-dark" routerLink="/carrito" *ngIf="success">
