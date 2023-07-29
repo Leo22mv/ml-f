@@ -83,6 +83,10 @@ export class StoreComponent implements OnInit {
         case "Accesorios":
           this.productList = this.totalProductList.filter((product: any) => product.category=="Accesorios");
           break
+
+      case "Otras":
+        this.productList = this.totalProductList.filter((product: any) => product.category!="Accesorios"&&product.category!="Ropa");
+        break
     }
   }
 
