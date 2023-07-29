@@ -1,6 +1,6 @@
 .alert, .spinner-border, .card {
     margin: 15px;
 }
-.card {
-    border: 2px solid black;
+.card-body {
+    padding: 5px 0;
 }
