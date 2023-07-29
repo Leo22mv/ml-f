@@ -16,10 +16,12 @@
           <h5 class="card-title">{{ product.name }}</h5>
           <p class="card-text">{{ product.description }}</p>
           <p class="card-text"><small class="text-muted">Categoría: {{ product.category }}</small></p>
+          <div class="card-footer">
+            <h1>${{ product.price }}</h1>
+            <br>
+            <button class="btn btn-dark">Agregar al carrito</button>
+          </div>
         </div>
-      </div>
-      <div class="card-footer">
-        <h1>{{ product.price }}</h1>
       </div>
     </div>
 </div>
