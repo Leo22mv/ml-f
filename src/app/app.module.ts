@@ -37,6 +37,8 @@ import { StoreProductComponent } from './components/pages/store/store-product/st
 import { CartComponent } from './components/pages/cart/cart.component';
 import { ACartComponent } from './components/header/a-cart/a-cart.component';
 import { SearchResultsComponent } from './components/pages/search-results/search-results.component';
+import { FavsComponent } from './components/pages/home/favs/favs.component';
+import { RecommendedComponent } from './components/pages/home/recommended/recommended.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +72,9 @@ import { SearchResultsComponent } from './components/pages/search-results/search
     StoreProductComponent,
     CartComponent,
     ACartComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    FavsComponent,
+    RecommendedComponent
   ],
   imports: [
     BrowserModule,
