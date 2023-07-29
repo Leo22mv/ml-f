@@ -54,7 +54,7 @@ export class StoreProductComponent implements OnInit {
 
       // console.log(this.productToEmit)
     }  else {
-      this.router.navigate(["/tienda"]);
+      this.router.navigate(["/iniciar-sesion"]);
     }
   }
 }
