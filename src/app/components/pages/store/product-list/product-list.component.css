@@ -1,0 +1,10 @@
+.spinner-border {
+    margin: 15px;
+}
+.filters {
+    margin: 10px;
+    display: flex;
+}
+.filters button {
+    margin: 10px;
+}

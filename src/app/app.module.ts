@@ -39,6 +39,8 @@ import { ACartComponent } from './components/header/a-cart/a-cart.component';
 import { SearchResultsComponent } from './components/pages/search-results/search-results.component';
 import { FavsComponent } from './components/pages/home/favs/favs.component';
 import { RecommendedComponent } from './components/pages/home/recommended/recommended.component';
+import { ProductDetailsComponent } from './components/pages/store/product-details/product-details.component';
+import { ProductListComponent } from './components/pages/store/product-list/product-list.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +76,9 @@ import { RecommendedComponent } from './components/pages/home/recommended/recomm
     ACartComponent,
     SearchResultsComponent,
     FavsComponent,
-    RecommendedComponent
+    RecommendedComponent,
+    ProductDetailsComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,

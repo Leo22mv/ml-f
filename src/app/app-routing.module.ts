@@ -20,6 +20,8 @@ import { RoleGuard } from './services/role-guard.service';
 import { ProfileComponent } from './components/pages/profile/profile.component';
 import { CartComponent } from './components/pages/cart/cart.component';
 import { SearchResultsComponent } from './components/pages/search-results/search-results.component';
+import { ProductDetailsComponent } from './components/pages/store/product-details/product-details.component';
+import { ProductListComponent } from './components/pages/store/product-list/product-list.component';
 
 const routes: Routes = [
   {path: "buscar", component: SearchResultsComponent},
@@ -42,7 +44,12 @@ const routes: Routes = [
       {path: "ver", component: GetUsersComponent}
     ]}
   ]},
-  {path: "tienda", component: StoreComponent},
+  {path: "tienda", component: StoreComponent, children: [
+    {path: "producto/:id", component: ProductDetailsComponent},
+    {path: "", redirectTo: "productos", pathMatch: "full"},
+    {path: "**", redirectTo: "productos", pathMatch: "full"},
+    {path: "productos", component: ProductListComponent},
+  ]},
   {path: "", redirectTo: "/home", pathMatch: "full"},
   {path: "**", redirectTo: "/home", pathMatch: "full"},
   {path: "home", component: HomeComponent}
