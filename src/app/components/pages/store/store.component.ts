@@ -117,7 +117,7 @@ export class StoreComponent implements OnInit {
     let existent: boolean = false;
 
     for (let product of this.cart) {
-      if (product.id==prod.id) {
+      if (product.id_product==prod.id_product) {
         // console.log(product.quantity)
         product.quantity += prod.quantity;
         // console.log(product.quantity)
