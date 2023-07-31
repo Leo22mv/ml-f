@@ -62,6 +62,8 @@ export class ProductDetailsComponent implements OnInit {
           if (this.id == product.id_product) {
             this.loading = false;
             this.product = product;
+            this.productToAdd = this.product;
+            this.productToAdd.quantity = this.quantity;
             break; // Once found, break the loop.
           }
         }
@@ -76,9 +78,6 @@ export class ProductDetailsComponent implements OnInit {
 
   addToCart(prod: Product) {
     let existent: boolean = false;
-
-    this.productToAdd = this.product;
-    this.productToAdd.quantity = this.quantity;
     
     for (let product of this.cartService.cart) {
       if (product.id_product==prod.id_product) {
