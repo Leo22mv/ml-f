@@ -23,7 +23,8 @@
             <label for="quantity">Cantidad:</label>
             <input type="number" id="quantity" name="quantity" min="1" max="{{ product.stock }}" [(ngModel)]="quantity">
             <br>
-            <button class="btn btn-dark" (click)="addToCart(productToAdd)">Agregar al carrito</button>
+            <button class="btn btn-dark disabled" *ngIf="loading">Agregar al carrito</button>
+            <button class="btn btn-dark" (click)="addToCart(productToAdd)" *ngIf="!loading">Agregar al carrito</button>
             <button class="btn btn-dark" routerLink="/tienda">Volver a la tienda</button>
           </div>
         </div>
