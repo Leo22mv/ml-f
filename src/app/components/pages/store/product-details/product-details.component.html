@@ -18,8 +18,13 @@
           <div class="card-footer">
             <h1>${{ product.price }}</h1>
             <br>
-            <button class="btn btn-dark disabled">Agregar al carrito</button>
-            <button class="btn btn-dark">Volver a la tienda</button>
+            <small>Cantidad disponible: {{ product.stock }}</small>
+            <br>
+            <label for="quantity">Cantidad:</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="{{ product.stock }}">
+            <br>
+            <button class="btn btn-dark">Agregar al carrito</button>
+            <button class="btn btn-dark" routerLink="/tienda">Volver a la tienda</button>
           </div>
         </div>
       </div>

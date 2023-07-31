@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import { Product } from 'src/app/models/product';
+import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -23,12 +25,21 @@ export class ProductDetailsComponent implements OnInit {
     // }
     ;
 
+  productToAdd: any;
+  quantity: number = 0;
+
   loading: boolean = true;
   error: boolean = false;
 
-  constructor(private route: ActivatedRoute, private prodServ: ProductService) { }
+  btnClass: string = "btn btn-dark";
+
+  constructor(private route: ActivatedRoute, private prodServ: ProductService, private cartService: CartService) { }
 
   ngOnInit(): void {
+
+    this.productToAdd = this.product;
+    this.productToAdd.quantity = this.quantity;
+
     // this.id = this.route.snapshot.paramMap.get('id');
 
     // this.prodServ.getProducts().subscribe(res => {
@@ -64,6 +75,24 @@ export class ProductDetailsComponent implements OnInit {
         this.loading = false;
       }
     );
+  }
+
+
+  addToCart(prod: Product) {
+    let existent: boolean = false;
+    
+    for (let product of this.cartService.cart) {
+      if (product.id_product==prod.id_product) {
+        product.quantity += prod.quantity;
+        existent = true;
+      }
+    }
+
+    if (!existent) {
+      this.cartService.cart.push(prod);
+    }
+
+    this.btnClass = "btn btn-dark disabled";
   }
 
 }

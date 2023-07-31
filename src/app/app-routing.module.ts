@@ -22,8 +22,10 @@ import { CartComponent } from './components/pages/cart/cart.component';
 import { SearchResultsComponent } from './components/pages/search-results/search-results.component';
 import { ProductDetailsComponent } from './components/pages/store/product-details/product-details.component';
 import { ProductListComponent } from './components/pages/store/product-list/product-list.component';
+import { CheckoutComponent } from './components/pages/checkout/checkout.component';
 
 const routes: Routes = [
+  {path: "checkout", component: CheckoutComponent},
   {path: "buscar", component: SearchResultsComponent},
   {path: "carrito", component: CartComponent, canActivate: [RoleGuard], data: { requiredRoles: ['ROLE_ADMIN', 'ROLE_USER'] }},
   {path: "perfil", component: ProfileComponent, canActivate: [RoleGuard], data: { requiredRoles: ['ROLE_ADMIN', 'ROLE_USER'] }},

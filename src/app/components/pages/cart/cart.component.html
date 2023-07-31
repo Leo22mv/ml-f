@@ -1,5 +1,27 @@
-<div *ngFor="let product of cart">
-    Nombre: {{ product.name }}, Cantidad: {{ product.quantity }}
+<h1 class="display-1">Carrito</h1>
+
+<ul class="list-group">
+    <div *ngFor="let product of cart">
+        <li class="list-group-item">
+            <!-- <ul> -->
+                <!-- <li> -->
+                    <h3>Nombre: {{ product.name }}</h3>
+                <!-- </li> -->
+                <!-- <li> -->
+                    <h3>Cantidad: {{ product.quantity }}</h3>
+                <!-- </li> -->
+                <!-- <li> -->
+                    <h1>${{ product.price * product.quantity }}</h1>
+                <!-- </li> -->
+            <!-- </ul> -->
+        </li>
+    </div>
+</ul>
+
+<div *ngIf="!voidCart()">
+    <h1 class="display-1 total">Total: ${{ total }}</h1>
+
+    <button class="btn btn-dark btn-lg" routerLink="/checkout">Continuar</button>
 </div>
 
 <div *ngIf="voidCart()">

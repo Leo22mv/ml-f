@@ -1,4 +1,4 @@
-.alert, .spinner-border, .card {
+.alert, .spinner-border, .card, input {
     margin: 15px;
 }
 .card-body {
@@ -7,9 +7,7 @@
 .btn {
     margin: 0 5px;
 }
-.card-footer {
-    /* height: 100%; */
-}
-.col-sm-8 {
-    /* padding-bottom: 0; */
+input {
+    border-radius: 5px;
+    border: 0.5px solid grey;
 }

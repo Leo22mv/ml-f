@@ -41,6 +41,7 @@ import { FavsComponent } from './components/pages/home/favs/favs.component';
 import { RecommendedComponent } from './components/pages/home/recommended/recommended.component';
 import { ProductDetailsComponent } from './components/pages/store/product-details/product-details.component';
 import { ProductListComponent } from './components/pages/store/product-list/product-list.component';
+import { CheckoutComponent } from './components/pages/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { ProductListComponent } from './components/pages/store/product-list/prod
     FavsComponent,
     RecommendedComponent,
     ProductDetailsComponent,
-    ProductListComponent
+    ProductListComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
