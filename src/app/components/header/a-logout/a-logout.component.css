@@ -2,3 +2,6 @@ li {
     /* color: white; */
     margin-top: 5px;
 }
+img:hover {
+    filter: brightness(100);
+}

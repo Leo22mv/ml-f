@@ -61,6 +61,7 @@ export class ProductDetailsComponent implements OnInit {
       },
       (err) => {
         this.error = true;
+        this.loading = false;
       }
     );
   }

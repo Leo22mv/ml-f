@@ -34,6 +34,12 @@ export class StoreProductComponent implements OnInit {
   constructor(private cartService: CartService, private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+    for (let product of this.cartService.cart) {
+      if (product.id_product==this.product.id_product) {
+        this.product.quantity -= product.quantity;
+        break;
+      }
+    }
   }
 
   addToCart() {

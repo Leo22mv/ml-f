@@ -7,6 +7,12 @@
 h2 {
     margin-top: 50px;
 }
+.card {
+  cursor: pointer;
+}
+
+
+
 /* Ocultar productos que superen la cantidad en la primera fila para cada resolución */
 @media (max-width: 576px) {
   .row.row-cols-2 .col:nth-child(n+3),

@@ -21,3 +21,6 @@ input {
 .flex p {
     color: green;
 }
+.pointer {
+    cursor: pointer;
+}

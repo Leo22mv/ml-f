@@ -8,6 +8,8 @@
 
 <p *ngIf="!loading">Mostrando {{ results }} de {{ results }} resultados</p>
 
-<div *ngFor="let product of productList">
-    <app-store-product [product]="product"></app-store-product>
-</div>
+<ul class="list-group">
+    <div *ngFor="let product of productList">
+        <app-store-product [product]="product"></app-store-product>
+    </div>
+</ul>
