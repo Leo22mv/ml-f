@@ -46,6 +46,7 @@ export class ProductDetailsComponent implements OnInit {
       switchMap((params: ParamMap) => {
         this.id = params.get('id');
         this.loading = true; // Show loading spinner while fetching data
+        this.product = {};
         return this.prodServ.getProducts(); // Fetch the products
       })
     ).subscribe(
