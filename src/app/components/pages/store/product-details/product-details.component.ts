@@ -26,7 +26,7 @@ export class ProductDetailsComponent implements OnInit {
     // ;
 
   productToAdd: any;
-  quantity: number = 0;
+  quantity: number = 1;
 
   loading: boolean = true;
   error: boolean = false;

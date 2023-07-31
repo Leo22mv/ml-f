@@ -21,7 +21,7 @@
             <small>Cantidad disponible: {{ product.stock }}</small>
             <br>
             <label for="quantity">Cantidad:</label>
-            <input type="number" id="quantity" name="quantity" min="1" max="{{ product.stock }}">
+            <input type="number" id="quantity" name="quantity" min="1" max="{{ product.stock }}" [(ngModel)]="quantity">
             <br>
             <button class="btn btn-dark">Agregar al carrito</button>
             <button class="btn btn-dark" routerLink="/tienda">Volver a la tienda</button>
