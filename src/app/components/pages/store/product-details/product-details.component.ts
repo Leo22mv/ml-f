@@ -63,7 +63,6 @@ export class ProductDetailsComponent implements OnInit {
             this.loading = false;
             this.product = product;
             this.productToAdd = this.product;
-            this.productToAdd.quantity = this.quantity;
             break; // Once found, break the loop.
           }
         }
@@ -73,6 +72,11 @@ export class ProductDetailsComponent implements OnInit {
         this.loading = false;
       }
     );
+  }
+
+  add() {
+    this.productToAdd.quantity = this.quantity;
+    this.addToCart(this.productToAdd);
   }
 
 
