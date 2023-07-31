@@ -42,6 +42,7 @@ import { RecommendedComponent } from './components/pages/home/recommended/recomm
 import { ProductDetailsComponent } from './components/pages/store/product-details/product-details.component';
 import { ProductListComponent } from './components/pages/store/product-list/product-list.component';
 import { CheckoutComponent } from './components/pages/checkout/checkout.component';
+import { CartItemComponent } from './components/pages/cart/cart-item/cart-item.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { CheckoutComponent } from './components/pages/checkout/checkout.componen
     RecommendedComponent,
     ProductDetailsComponent,
     ProductListComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,

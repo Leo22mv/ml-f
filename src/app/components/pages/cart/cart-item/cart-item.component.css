@@ -1,10 +1,19 @@
 h2, button, h1, ul {
     margin: 25px;
 }
+h3 {
+    margin-left: 25px;
+}
 ul {
     list-style: none;
 }
 .total {
     margin-top: 80px;
     margin-bottom: 0;
+}
+li {
+    padding-top: 25px;
+}
+svg {
+    cursor: pointer;
 }
