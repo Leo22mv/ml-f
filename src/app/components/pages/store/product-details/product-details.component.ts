@@ -71,14 +71,14 @@ export class ProductDetailsComponent implements OnInit {
         this.loading = false;
       }
     );
-
-    this.productToAdd = this.product;
-    this.productToAdd.quantity = this.quantity;
   }
 
 
   addToCart(prod: Product) {
     let existent: boolean = false;
+
+    this.productToAdd = this.product;
+    this.productToAdd.quantity = this.quantity;
     
     for (let product of this.cartService.cart) {
       if (product.id_product==prod.id_product) {
