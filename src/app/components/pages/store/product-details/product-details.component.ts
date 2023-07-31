@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -28,18 +29,39 @@ export class ProductDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private prodServ: ProductService) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id');
+    // this.id = this.route.snapshot.paramMap.get('id');
 
-    this.prodServ.getProducts().subscribe(res => {
-      for (let product of res) {
-        if (this.id==product.id_product) {
-          this.loading = false;
-          this.product = product;
+    // this.prodServ.getProducts().subscribe(res => {
+    //   for (let product of res) {
+    //     if (this.id==product.id_product) {
+    //       this.loading = false;
+    //       this.product = product;
+    //     }
+    //   }
+    // }, err => {
+    //   this.error = true;
+    // })
+
+    this.route.paramMap.pipe(
+      switchMap((params: ParamMap) => {
+        this.id = params.get('id');
+        this.loading = true; // Show loading spinner while fetching data
+        return this.prodServ.getProducts(); // Fetch the products
+      })
+    ).subscribe(
+      (res) => {
+        for (let product of res) {
+          if (this.id == product.id_product) {
+            this.loading = false;
+            this.product = product;
+            break; // Once found, break the loop.
+          }
         }
+      },
+      (err) => {
+        this.error = true;
       }
-    }, err => {
-      this.error = true;
-    })
+    );
   }
 
 }
