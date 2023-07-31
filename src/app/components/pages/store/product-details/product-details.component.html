@@ -15,18 +15,18 @@
           <h5 class="card-title">{{ product.name }}</h5>
           <p class="card-text">{{ product.description }}</p>
           <p class="card-text"><small class="text-muted">Categoría: {{ product.category }}</small></p>
-          <div class="card-footer">
-            <h1>${{ product.price }}</h1>
-            <br>
-            <small>Cantidad disponible: {{ product.stock }}</small>
-            <br>
-            <label for="quantity">Cantidad:</label>
-            <input type="number" id="quantity" name="quantity" min="1" max="{{ product.stock }}" [(ngModel)]="quantity">
-            <br>
-            <button class="btn btn-dark disabled" *ngIf="loading">Agregar al carrito</button>
-            <button [class]="btnClass" (click)="add()" *ngIf="!loading">Agregar al carrito</button>
-            <button class="btn btn-dark" routerLink="/tienda">Volver a la tienda</button>
-          </div>
+        </div>
+        <div class="card-footer">
+          <h1>${{ product.price }}</h1>
+          <br>
+          <small>Cantidad disponible: {{ product.stock }}</small>
+          <br>
+          <label for="quantity">Cantidad:</label>
+          <input type="number" id="quantity" name="quantity" min="1" max="{{ product.stock }}" [(ngModel)]="quantity">
+          <br>
+          <button class="btn btn-dark disabled" *ngIf="loading">Agregar al carrito</button>
+          <button [class]="btnClass" (click)="add()" *ngIf="!loading">Agregar al carrito</button>
+          <button class="btn btn-dark" routerLink="/tienda">Volver a la tienda</button>
         </div>
       </div>
     </div>
