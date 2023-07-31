@@ -23,7 +23,7 @@ export class ProductDetailsComponent implements OnInit {
     //   price: 5000,
     //   stock: 5
     // }
-    ;
+    // ;
 
   productToAdd: any;
   quantity: number = 0;
@@ -36,10 +36,6 @@ export class ProductDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private prodServ: ProductService, private cartService: CartService) { }
 
   ngOnInit(): void {
-
-    this.productToAdd = this.product;
-    this.productToAdd.quantity = this.quantity;
-
     // this.id = this.route.snapshot.paramMap.get('id');
 
     // this.prodServ.getProducts().subscribe(res => {
@@ -75,6 +71,9 @@ export class ProductDetailsComponent implements OnInit {
         this.loading = false;
       }
     );
+
+    this.productToAdd = this.product;
+    this.productToAdd.quantity = this.quantity;
   }
 
 
