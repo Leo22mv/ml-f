@@ -65,7 +65,7 @@ export class StoreComponent implements OnInit {
       for (let product of this.cartService.cart) {
         for (let prod of res) {
           if (product.id_product==prod.id_product) {
-            prod.quantity -= product.quantity;
+            prod.stock -= product.quantity;
           }
         }
       }
