@@ -60,22 +60,35 @@ export class StoreComponent implements OnInit {
   constructor(private http: HttpClient, private prodServ: ProductService, public cartService: CartService) { }
 
   ngOnInit(): void {
-    this.uri = this.prodServ.uri
-    this.prodServ.getProducts().subscribe(res => {
-      let pr = res;
-      for (let product of this.cartService.cart) {
-        for (let prod of pr) {
-          if (product.id_product==prod.id_product) {
-            prod.stock -= product.quantity;
-          }
-        }
-      }
-      this.loading = false;
-      this.productList = pr;
-      this.totalProductList = pr;
-    }, err => {
-      this.loading = false;
-    })
+    // this.uri = this.prodServ.uri
+    // this.prodServ.getProducts().subscribe(res => {
+    //   let pr = res;
+    //   for (let product of this.cartService.cart) {
+    //     for (let prod of pr) {
+    //       if (product.id_product==prod.id_product) {
+    //         console.log(`${ prod.stock }, ${product.quantity}`)
+    //         prod.stock -= product.quantity;
+    //         console.log(`${ prod.stock }`)
+    //       }
+    //     }
+    //   }
+    //   this.loading = false;
+    //   this.productList = pr;
+    //   this.totalProductList = pr;
+    // }, err => {
+    //   this.loading = false;
+    //   let pr = this.productList;
+    //   for (let product of this.cartService.cart) {
+    //     for (let prod of pr) {
+    //       if (product.id_product==prod.id_product) {
+    //         console.log(`${ prod.stock }, ${product.quantity}`)
+    //         prod.stock -= product.quantity;
+    //         console.log(`${ prod.stock }`)
+    //       }
+    //     }
+    //   }
+    //   this.productList = pr;
+    // })
   }
 
   changeCategory(cat: any) {
