@@ -66,7 +66,7 @@ export class ProductDetailsComponent implements OnInit {
                 console.log(`${ prod.stock }, ${product.quantity}`)
                 prod.stock -= product.quantity;
                 console.log(`${ prod.stock }`);
-                break;
+                // break;
               }
             }
           }
