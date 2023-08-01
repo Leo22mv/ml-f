@@ -69,10 +69,10 @@ export class ProductDetailsComponent implements OnInit {
                 // break;
               }
             }
+            this.product = product;
+            this.productToAdd = this.product;
+            break; // Once found, break the loop.
           }
-          this.product = product;
-          this.productToAdd = this.product;
-          break; // Once found, break the loop.
         }
       },
       (err) => {
