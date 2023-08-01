@@ -61,10 +61,18 @@ export class ProductDetailsComponent implements OnInit {
         for (let product of res) {
           if (this.id == product.id_product) {
             this.loading = false;
-            this.product = product;
-            this.productToAdd = this.product;
-            break; // Once found, break the loop.
+            for (let prod of this.cartService.cart) {
+              if (product.id_product==prod.id_product) {
+                console.log(`${ prod.stock }, ${product.quantity}`)
+                prod.stock -= product.quantity;
+                console.log(`${ prod.stock }`);
+                break;
+              }
+            }
           }
+          this.product = product;
+          this.productToAdd = this.product;
+          break; // Once found, break the loop.
         }
       },
       (err) => {
