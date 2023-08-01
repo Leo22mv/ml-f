@@ -62,6 +62,13 @@ export class StoreComponent implements OnInit {
   ngOnInit(): void {
     this.uri = this.prodServ.uri
     this.prodServ.getProducts().subscribe(res => {
+      for (let product of this.cartService.cart) {
+        for (let prod of res) {
+          if (product.id_product==prod.id_product) {
+            prod.quantity -= product.quantity;
+          }
+        }
+      }
       this.loading = false;
       this.productList = res;
       this.totalProductList = res;

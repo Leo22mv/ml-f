@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { AuthService } from 'src/app/services/auth.service';
@@ -9,7 +9,7 @@ import { CartService } from 'src/app/services/cart.service';
   templateUrl: './store-product.component.html',
   styleUrls: ['./store-product.component.css']
 })
-export class StoreProductComponent implements OnInit {
+export class StoreProductComponent implements OnInit, OnChanges {
 
   @Input() product: any;
   @Output() emitter: EventEmitter<Product> = new EventEmitter<Product>()
@@ -23,7 +23,7 @@ export class StoreProductComponent implements OnInit {
     price: 0,
     stock: 0,
     quantity: 0
-};
+  };
 
   quantity: number = 1;
 
@@ -32,14 +32,14 @@ export class StoreProductComponent implements OnInit {
   btnClass: string = "btn btn-dark"
 
   constructor(private cartService: CartService, private auth: AuthService, private router: Router) { }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes[this.product] && !changes[this.product].firstChange) {
+      // this.updateStock();
+    }
+  }
 
   ngOnInit(): void {
-    for (let product of this.cartService.cart) {
-      if (product.id_product==this.product.id_product) {
-        this.product.quantity -= product.quantity;
-        break;
-      }
-    }
+    
   }
 
   addToCart() {
@@ -65,6 +65,18 @@ export class StoreProductComponent implements OnInit {
       this.btnClass = "btn btn-dark disabled"
     }  else {
       this.router.navigate(["/iniciar-sesion"]);
+    }
+  }
+
+  updateStock() {
+    this.product
+    if (this.product.id_product!=0) {
+      for (let product of this.cartService.cart) {
+        if (product.id_product==this.product.id_product) {
+          this.product.quantity -= product.quantity;
+          break;
+        }
+      }
     }
   }
 }
