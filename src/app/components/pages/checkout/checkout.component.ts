@@ -39,6 +39,7 @@ export class CheckoutComponent implements OnInit {
     }, err => {
       this.loading = false;
       this.error = true;
+      console.log(err)
     });
   }
 }
