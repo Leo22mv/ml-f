@@ -50,7 +50,9 @@ export class LoginComponent implements OnInit {
 
         this.auth.getUsers().subscribe(resp => {
           for (let user of resp) {
+            console.log(resp)
             if (user.username==this.username) {
+              console.log(user.id_user)
               localStorage.setItem("id", user.id_user);
             }
           }
