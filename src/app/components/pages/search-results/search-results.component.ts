@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -54,7 +55,7 @@ export class SearchResultsComponent implements OnInit {
   loading: boolean = true;
   error: boolean = false;
 
-  constructor(private route: ActivatedRoute, private prodServ: ProductService) { }
+  constructor(private route: ActivatedRoute, private prodServ: ProductService, private cartServ: CartService) { }
 
   ngOnInit(): void {
 
@@ -70,6 +71,13 @@ export class SearchResultsComponent implements OnInit {
         // ||product.price.includes(params["busqueda"])
         )})
         this.results = this.productList.length});
+        for (let prod of this.cartServ.cart) {
+          for (let product of this.productList) {
+            if (prod.id_product==product.id_product) {
+              product.stock -= prod.quantity;
+            }
+          }
+        }
     }, err => {
       this.loading = false;
       this.error = true;
