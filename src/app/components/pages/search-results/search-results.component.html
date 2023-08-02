@@ -10,6 +10,6 @@
 
 <ul class="list-group">
     <div *ngFor="let product of productList">
-        <app-store-product [product]="product"></app-store-product>
+        <app-store-product [product]="product" (emitter)="addToCart($event)"></app-store-product>
     </div>
 </ul>

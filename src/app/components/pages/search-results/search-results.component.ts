@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -84,4 +85,22 @@ export class SearchResultsComponent implements OnInit {
     })
   }
 
+
+  addToCart(prod: Product) {
+    let existent: boolean = false;
+    
+    for (let product of this.cartServ.cart) {
+      if (product.id_product==prod.id_product) {
+        // console.log(product.quantity)
+        product.quantity += prod.quantity;
+        // console.log(product.quantity)
+        existent = true;
+      }
+      // console.log(product.quantity)
+    }
+
+    if (!existent) {
+      this.cartServ.cart.push(prod);
+    }
+  }
 }
