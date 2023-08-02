@@ -49,6 +49,17 @@ export class ProductDetailsComponent implements OnInit {
     //   this.error = true;
     // })
 
+
+    // for (let prod of this.cartService.cart) {
+    //   if (this.product.id_product==prod.id_product) {
+    //     console.log(`${ prod.stock }, ${this.product.quantity}`)
+    //     this.product.stock -= prod.quantity;
+    //     console.log(`${ prod.stock }`);
+    //     break;
+    //   }
+    // }
+    
+
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
         this.id = params.get('id');
@@ -56,16 +67,17 @@ export class ProductDetailsComponent implements OnInit {
         this.product = {};
         return this.prodServ.getProducts(); // Fetch the products
       })
-    ).subscribe(
+    )
+    .subscribe(
       (res) => {
         for (let product of res) {
           if (this.id == product.id_product) {
             this.loading = false;
             for (let prod of this.cartService.cart) {
-              if (product.id_product==prod.id_product) {
-                console.log(`${ prod.stock }, ${product.quantity}`)
-                prod.stock -= product.quantity;
-                console.log(`${ prod.stock }`);
+              if (this.id==prod.id_product) {
+                // console.log(`${ prod.stock }, ${product.quantity}`)
+                product.stock -= prod.quantity;
+                // console.log(`${ prod.stock }`);
                 // break;
               }
             }
@@ -80,6 +92,8 @@ export class ProductDetailsComponent implements OnInit {
         this.loading = false;
       }
     );
+
+
   }
 
   add() {
