@@ -21,7 +21,7 @@ export class StoreProductComponent implements OnInit, OnChanges {
     urlPh: "",
     category: "",
     price: 0,
-    stock: 0,
+    stock: 1,
     quantity: 0
   };
 
@@ -39,7 +39,9 @@ export class StoreProductComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    
+    if (this.product.stock<=0) {
+      this.btnClass = "btn btn-dark disabled"
+    }
   }
 
   addToCart() {
@@ -69,7 +71,7 @@ export class StoreProductComponent implements OnInit, OnChanges {
   }
 
   updateStock() {
-    this.product
+    // this.product
     if (this.product.id_product!=0) {
       for (let product of this.cartService.cart) {
         if (product.id_product==this.product.id_product) {
