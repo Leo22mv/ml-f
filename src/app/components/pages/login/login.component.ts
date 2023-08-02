@@ -48,13 +48,13 @@ export class LoginComponent implements OnInit {
         this.btnClass = "";
         this.logged = true;
 
-        // this.auth.getUsers().subscribe(resp => {
-        //   for (let user of resp) {
-        //     if (user.username==this.username) {
-        //       localStorage.setItem("id", user.id_user);
-        //     }
-        //   }
-        // })
+        this.auth.getUsers().subscribe(resp => {
+          for (let user of resp) {
+            if (user.username==this.username) {
+              localStorage.setItem("id", user.id_user);
+            }
+          }
+        })
 
         localStorage.setItem("auth_token", res.token);
         localStorage.setItem("role", res.Role[0].authority);
