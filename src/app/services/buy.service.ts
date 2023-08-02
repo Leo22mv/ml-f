@@ -12,6 +12,6 @@ export class BuyService {
   constructor(private http: HttpClient) { }
 
   buy(buy: any): Observable<any> {
-    return this.http.post(this.uri + "/compras", buy)
+    return this.http.post(this.uri + "/compra", buy)
   }
 }
