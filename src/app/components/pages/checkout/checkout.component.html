@@ -16,7 +16,19 @@
 </div>
 
 <div class="d-flex justify-content-center">
-    <button class="btn btn-dark">
+    <button [class]="btnClass" (click)="onSubmit()">
         Confirmar compra
     </button>
+</div>
+
+<div class="spinner-border" role="status" *ngIf="loading">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+<div class="alert alert-success" *ngIf="success">
+    Compra realizada con éxito
+</div>
+
+<div class="alert alert-danger" *ngIf="error">
+    Error
 </div>
