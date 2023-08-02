@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class BuyService {
 
-  uri: string = "";
+  uri: string = "https://ml-b-s.azurewebsites.net";
 
   constructor(private http: HttpClient) { }
 
