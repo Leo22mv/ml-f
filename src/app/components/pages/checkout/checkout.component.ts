@@ -10,6 +10,8 @@ import { CartService } from 'src/app/services/cart.service';
 export class CheckoutComponent implements OnInit {
 
   total: number = 0;
+  username: string | null = "";
+  buy: any[] = [];
 
   loading: boolean = false;
   success: boolean = false;
@@ -22,13 +24,16 @@ export class CheckoutComponent implements OnInit {
   ngOnInit(): void {
     for (let product of this.cartServ.cart) {
       this.total += product.price * product.quantity;
+
+      this.buy.push({id_product: product.id_product, quantity: product.quantity});
     }
+    this.username = localStorage.getItem("Username");
   }
 
   onSubmit() {
     this.btnClass = "btn btn-dark disabled";
     this.loading = true;
-    this.buyServ.buy({id_user: 1, total: this.total, buy: { id_product: 1, quantity: 1 }}).subscribe(res => {
+    this.buyServ.buy({username: this.username, total: this.total, buy: this.buy}).subscribe(res => {
       this.loading = false;
       this.success = true;
     }, err => {
