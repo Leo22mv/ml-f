@@ -83,6 +83,9 @@ export class ProductDetailsComponent implements OnInit {
             }
             this.product = product;
             this.productToAdd = this.product;
+            if (this.product.stock<=0) {
+              this.btnClass = "btn btn-dark disabled";
+            }
             break; // Once found, break the loop.
           }
         }
