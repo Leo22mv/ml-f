@@ -32,10 +32,12 @@ export class CheckoutComponent implements OnInit {
   }
 
   onSubmit() {
+    const toSubmit = {username: this.username, total: this.total, buy: this.buy}
+    console.log(toSubmit)
     this.btnClass = "btn btn-dark disabled";
     this.loading = true;
-    // this.buyServ.buy({username: this.username, total: this.total, buy: this.buy})
-    this.http.post("https://ml-b-s.azurewebsites.net/compra", {username: this.username, total: this.total, buy: this.buy})
+    this.buyServ.buy(toSubmit)
+    // this.http.post("https://ml-b-s.azurewebsites.net/compra", {username: this.username, total: this.total, buy: this.buy})
     .subscribe(res => {
       this.loading = false;
       this.success = true;
