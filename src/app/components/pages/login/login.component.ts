@@ -30,10 +30,10 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    // this.router.navigate(["/tienda"]);
-    // localStorage.setItem("auth_token", "1");
-    // localStorage.setItem("role", "ROLE_ADMIN");
-    // localStorage.setItem("Username", "kbe");
+    this.router.navigate(["/tienda"]);
+    localStorage.setItem("auth_token", "1");
+    localStorage.setItem("role", "ROLE_ADMIN");
+    localStorage.setItem("Username", "kbe");
 
 
     if (this.username.length>0&&this.password.length>0) {
