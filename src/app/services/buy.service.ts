@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class BuyService {
 
-  uri: string = "https://ml-b-n.onrender.com";
+  // uri: string = "https://ml-b-n.onrender.com";
+  uri: string = "https://ml-b.onrender.com";
 
   constructor(private http: HttpClient) { }
 
