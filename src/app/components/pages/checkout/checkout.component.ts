@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { BuyService } from 'src/app/services/buy.service';
 import { CartService } from 'src/app/services/cart.service';
@@ -19,7 +20,7 @@ export class CheckoutComponent implements OnInit {
 
   btnClass: string = "btn btn-dark";
 
-  constructor(public cartServ: CartService, private buyServ: BuyService) { }
+  constructor(public cartServ: CartService, private buyServ: BuyService, private http: HttpClient) { }
 
   ngOnInit(): void {
     for (let product of this.cartServ.cart) {
@@ -33,7 +34,9 @@ export class CheckoutComponent implements OnInit {
   onSubmit() {
     this.btnClass = "btn btn-dark disabled";
     this.loading = true;
-    this.buyServ.buy({username: this.username, total: this.total, buy: this.buy}).subscribe(res => {
+    // this.buyServ.buy({username: this.username, total: this.total, buy: this.buy})
+    this.http.post("https://ml-b-s.azurewebsites.net/compra", {username: this.username, total: this.total, buy: this.buy})
+    .subscribe(res => {
       this.loading = false;
       this.success = true;
     }, err => {
