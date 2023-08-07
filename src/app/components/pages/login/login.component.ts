@@ -72,6 +72,9 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("user_id", res.user_id);
         if (this.username=="kbe") {
           localStorage.setItem("Admin", "1");
+          localStorage.setItem("role", "ROLE_ADMIN");
+        } else {
+          localStorage.setItem("role", "ROLE_USER");
         }
 
 
