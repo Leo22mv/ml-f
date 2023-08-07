@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
       this.error = false;
       this.invalid = false;
       this.vacio = false;
-      this.http.post(this.uri + "/iniciar-sesion", {username: this.username, password: this.password}).subscribe((res: any) => {
+      this.http.post(this.uri + "/login", {username: this.username, password: this.password}).subscribe((res: any) => {
         console.log(res);
         this.loading = false;
         this.btnClass = "";
@@ -59,14 +59,14 @@ export class LoginComponent implements OnInit {
         //   }
         // })
 
-        localStorage.setItem("auth_token", res.token);
-        localStorage.setItem("role", res.Role[0].authority);
-        localStorage.setItem("Username", res.Username);
-        localStorage.setItem("id", res.UserId);
-        if (res.Role[0].authority=="ROLE_ADMIN") {
-          localStorage.setItem("Admin", "1");
-        }
-        this.router.navigate(["/perfil"]);
+        // localStorage.setItem("auth_token", res.token);
+        // localStorage.setItem("role", res.Role[0].authority);
+        // localStorage.setItem("Username", res.Username);
+        // localStorage.setItem("id", res.UserId);
+        // if (res.Role[0].authority=="ROLE_ADMIN") {
+        //   localStorage.setItem("Admin", "1");
+        // }
+        // this.router.navigate(["/perfil"]);
       }, err => {
         console.log(err)
         this.loading = false;

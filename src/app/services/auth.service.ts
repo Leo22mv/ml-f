@@ -8,7 +8,8 @@ export class AuthService {
 
   // uri: string = "http://localhost:8080";
   // uri: string = "https://ml-b-s.azurewebsites.net";
-  uri: string = "https://ml-b.onrender.com";
+  // uri: string = "https://ml-b.onrender.com";
+  uri: string = "https://ml-b-n.onrender.com";
 
   constructor(private http: HttpClient) { }
 
