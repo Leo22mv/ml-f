@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
       this.invalid = false;
       this.vacio = false;
       this.http.post(this.uri + "/login", {username: this.username, password: this.password}).subscribe((res: any) => {
-        console.log(res);
+        // console.log(res);
         this.loading = false;
         this.btnClass = "";
         this.logged = true;
@@ -66,7 +66,16 @@ export class LoginComponent implements OnInit {
         // if (res.Role[0].authority=="ROLE_ADMIN") {
         //   localStorage.setItem("Admin", "1");
         // }
-        // this.router.navigate(["/perfil"]);
+
+
+        localStorage.setItem("Username", res.username);
+        localStorage.setItem("user_id", res.user_id);
+        if (this.username=="kbe") {
+          localStorage.setItem("Admin", "1");
+        }
+
+
+        this.router.navigate(["/perfil"]);
       }, err => {
         console.log(err)
         this.loading = false;
