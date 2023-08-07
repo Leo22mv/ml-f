@@ -28,14 +28,13 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem("auth_token");
-    localStorage.removeItem("role");
+    localStorage.removeItem("user_id");
     localStorage.removeItem("Username");
     localStorage.removeItem("Admin");
   }
 
   public get logged(): boolean {
-    return (localStorage.getItem("auth_token") !== null);
+    return (localStorage.getItem("user_id") !== null);
     // return true
   }
 
