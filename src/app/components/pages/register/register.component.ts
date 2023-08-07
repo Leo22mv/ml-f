@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
   vacio: boolean = false;
   
 
-  uri: string = "";
+  uri: string = "https://ml-b.onrender.com";
   email: string = "";
   nombre: string = "";
   username: string = "";
@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
   constructor(private http: HttpClient, private auth: AuthService) { }
 
   ngOnInit(): void {
-    this.uri = this.auth.uri;
+    // this.uri = this.auth.uri;
   }
 
   onSubmit() {
