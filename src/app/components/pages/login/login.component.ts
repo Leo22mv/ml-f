@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
       this.error = false;
       this.invalid = false;
       this.vacio = false;
-      this.http.post(this.uri + "/login", {username: this.username, password: this.password}).subscribe((res: any) => {
+      this.http.post(this.uri + "/iniciar-sesion", {username: this.username, password: this.password}).subscribe((res: any) => {
         console.log(res);
         this.loading = false;
         this.btnClass = "";
