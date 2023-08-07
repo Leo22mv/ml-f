@@ -41,11 +41,11 @@ export class RegisterComponent implements OnInit {
       // console.log(this.email)
       // this.http.post(this.uri + "/registrarse", {email: this.email, nombre: this.nombre, username: this.username, password: this.password, roles: ["USER"]}).subscribe(res => {
       this.http.post(this.uri + "/registrarse", {email: this.email, nombre: this.nombre, username: this.username, password: this.password}).subscribe(res => {
-      // console.log(res);
-      this.loading = false;
-      this.registered = true;
+        // console.log(res);
+        this.loading = false;
+        this.registered = true;
       }, (err) => {
-        // console.log(err);
+        console.log(err);
         this.loading = false;
         if (err.status==200) {
           this.registered = true;
